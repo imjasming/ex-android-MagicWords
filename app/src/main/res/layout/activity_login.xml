@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            style="@style/LinearLayoutVer">
+            <!--username-->
+            <android.support.design.widget.TextInputLayout
+                style="@style/Text_input_layout">
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edt_login_username"
+                    style="@style/Text_input_edit"
+                    android:hint="username"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!--password-->
+            <android.support.design.widget.TextInputLayout
+                style="@style/Text_input_layout">
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edt_login_password"
+                    style="@style/Text_input_edit"
+                    android:hint="passport"
+                    android:inputType="textPassword"
+                    android:maxLength="16" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!--Login Button-->
+            <Button
+                android:id="@+id/btn_login_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                style="@style/ButtonNormal"
+                android:text="Login" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--register Button-->
+                <Button
+                    android:id="@+id/btn_login_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="8dp"
+                    android:background="#00000000"
+                    android:text="register"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorPrimary"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/btn_login_forget"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_login_forget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="8dp"
+                    android:background="#00000000"
+                    android:text="forget"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/login_about_us"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginTop="128dp"
+                android:text="about"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--style="@style/LinearLayoutVer"-->
+    <!--tools:context=".activities.LoginActivity"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<android.support.design.widget.TextInputEditText-->
+                <!--android:id="@+id/text_input_user"-->
+                <!--style="@style/Text_input"-->
+                <!--android:hint="@string/username" />-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/text_input_password"-->
+                <!--style="@style/Text_input"-->
+                <!--android:hint="@string/password"-->
+                <!--android:inputType="textPassword" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/login_button"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="16dp"-->
+                <!--style="@style/ButtonNormal"-->
+                <!--android:text="@string/login_button" />-->
+
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<Button-->
+                    <!--android:id="@+id/register_button"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="start"-->
+                    <!--android:layout_marginStart="8dp"-->
+                    <!--android:background="#00000000"-->
+                    <!--android:text="@string/register"-->
+                    <!--android:textAlignment="viewStart"-->
+                    <!--android:textColor="@color/colorPrimary"-->
+                    <!--app:layout_constraintBaseline_toBaselineOf="@+id/forget_button"-->
+                    <!--app:layout_constraintStart_toStartOf="parent" />-->
+
+                <!--<Button-->
+                    <!--android:id="@+id/forget_button"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="end"-->
+                    <!--android:layout_marginEnd="8dp"-->
+                    <!--android:background="#00000000"-->
+                    <!--android:text="@string/forget_button"-->
+                    <!--android:textAlignment="textEnd"-->
+                    <!--android:textColor="@color/colorPrimary"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent" />-->
+
+            <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/about_us"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="bottom|center_horizontal"-->
+                <!--android:layout_marginTop="128dp"-->
+                <!--android:text="@string/about"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:textSize="12sp" />-->
+        <!--</android.support.design.widget.TextInputLayout>-->
+    <!--</ScrollView>-->
+
+
+
+<!--</LinearLayout>-->
