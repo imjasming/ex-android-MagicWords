@@ -1,9 +1,9 @@
 package com.magicwords.net;
 
-import com.xiaoming.exercise.mygymclub.net.callback.IError;
-import com.xiaoming.exercise.mygymclub.net.callback.IFailure;
-import com.xiaoming.exercise.mygymclub.net.callback.IRequest;
-import com.xiaoming.exercise.mygymclub.net.callback.ISuccess;
+import com.magicwords.net.callback.IError;
+import com.magicwords.net.callback.IFailure;
+import com.magicwords.net.callback.IRequest;
+import com.magicwords.net.callback.ISuccess;
 
 import java.util.WeakHashMap;
 

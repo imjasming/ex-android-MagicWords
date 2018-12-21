@@ -1,6 +1,6 @@
 package com.magicwords.net;
 
-import com.xiaoming.exercise.mygymclub.model.User;
+import com.magicwords.model.User;
 
 import java.util.Map;
 
