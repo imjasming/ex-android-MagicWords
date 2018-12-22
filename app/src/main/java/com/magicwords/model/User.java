@@ -2,15 +2,19 @@ package com.magicwords.model;
 
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 
-public class User {
+public class User implements Serializable {
+    private static final long serialVersionUID = 4723277888920235026L;
     private UUID mUUID;
     private String mNickName;
     private String mPassword;
     private String mEmail;
     //private int mTelNum;
+
+    public User(){}
 
     public User(UUID uuid, String password){
         mUUID = uuid;

@@ -14,7 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.magicwords.R;
+import com.magicwords.fragments.HomeFragment;
+import com.magicwords.model.User;
 
+import me.yokeyword.fragmentation.BuildConfig;
+import me.yokeyword.fragmentation.Fragmentation;
 import me.yokeyword.fragmentation.SupportActivity;
 
 public class MainActivity extends SupportActivity
@@ -35,6 +39,17 @@ public class MainActivity extends SupportActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // 栈视图等功能，建议在Application里初始化
+        Fragmentation.builder()
+                // 显示悬浮球 ; 其他Mode:SHAKE: 摇一摇唤出   NONE：隐藏
+                .stackViewMode(Fragmentation.BUBBLE)
+                .debug(BuildConfig.DEBUG)
+             .install();
+
+        if (findFragment(HomeFragment.class) == null) {
+            loadRootFragment(R.id.fragment_container_main, HomeFragment.newInstance(new User()));  // 加载根Fragment
+        }
     }
 
     /*@Override
