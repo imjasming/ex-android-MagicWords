@@ -75,7 +75,7 @@
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
             <!--android:layout_margin="5dp"-->
-            <!--android:background="@drawable/shape_button"-->
+            <!--android:background="@drawable/shape_button_round"-->
             <!--android:text="@string/proof"-->
             <!--android:textStyle="italic|bold" />-->
 
