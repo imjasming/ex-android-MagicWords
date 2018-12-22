@@ -2,10 +2,7 @@ package com.magicwords.activities;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.MediaController;
@@ -18,29 +15,38 @@ public class TeachingActivity extends AppCompatActivity {
 
     private VideoView videoView;
     private MediaController mediaController;
-    private boolean isRunning = false;
+    private Button movie_1;
+    private Button movie_2;
+    private Button movie_3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.content_teaching);
         initView();
     }
 
     private void initView() {
         videoView= (VideoView) findViewById(R.id.video_movie);
-
-        videoView.setOnClickListener(new View.OnClickListener() {
+        movie_1 = findViewById(R.id.btn_movie_1);
+        movie_2 = findViewById(R.id.btn_movie_2);
+        movie_3 = findViewById(R.id.btn_movie_3);
+        movie_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isRunning==false){
                     init();
-                    isRunning=true;
-                }
-                else {
-                    videoView.stopPlayback();
-                    isRunning=false;
-                }
+            }
+        });
+        movie_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                init();
+            }
+        });
+        movie_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                init();
             }
         });
     }
