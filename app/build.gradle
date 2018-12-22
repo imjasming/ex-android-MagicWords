@@ -38,9 +38,9 @@ dependencies {
     //将JSON字符串转换为对象需要使用的依赖
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 
-    implementation  'com.alibaba:fastjson:1.2.37'
+    implementation 'com.alibaba:fastjson:1.2.37'
 
-    implementation'com.squareup.retrofit2:converter-scalars:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
 
     //ButterKnife依赖
     implementation 'com.jakewharton:butterknife:8.8.1'

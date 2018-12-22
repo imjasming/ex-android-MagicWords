@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".activities.ReadingActivity"
     android:background="@color/lightyellow">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,6 +34,10 @@
         </LinearLayout>
         <TextView
             android:id="@+id/passage_title"
+            android:text="passage_title"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="30sp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -58,15 +62,14 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp">
+            android:layout_marginTop="10dp">
             <Button
                 android:id="@+id/btn_translation_next"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="translation/Next Passage"
+                android:text="翻译/下一篇"
                 android:textStyle="bold"
                 android:background="@drawable/shape_button_1" />
         </LinearLayout>
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>
