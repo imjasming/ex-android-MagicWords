@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresPermission;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -116,6 +117,11 @@ public class HomeFragment extends SupportFragment {
             case R.id.home_btn_listen:
                 home.start(ListenFragments.newInstence(), SupportFragment.SINGLETASK);
                 break;
+            case R.id.home_btn_say:
+                home.start(TeachingFragment.newInstance(),SupportFragment.SINGLETASK);
+                break;
+            case R.id.home_btn_read:
+                home.start(ReadingFragment.newInstance(),SupportFragment.SINGLETASK);
         }
     }
 
