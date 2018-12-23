@@ -7,9 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/banner_container"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="180dp"
         zsr:layout_constraintEnd_toEndOf="parent"
         zsr:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
 
         <com.zhengsr.viewpagerlib.indicator.ZoomIndicator
             android:id="@+id/home_banner_zoom_indicator"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="20dp"
@@ -35,7 +35,7 @@
             zsr:zoom_alpha_min="0.5"
             zsr:zoom_leftmargin="10dp"
             zsr:zoom_max="1.5" />
-    </RelativeLayout>
+    </FrameLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/home_layout_container"
@@ -51,19 +51,17 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" />
+            <!--app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toToStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            zsr:layout_constraintStart_toStartOf="parent" />
+            zsr:layout_constraintStart_toStartOf="parent" />-->
 
-        <android.support.v7.widget.GridLayout
+        <android.support.constraint.ConstraintLayout
             android:id="@+id/home_container"
             android:layout_width="match_parent"
-            android:layout_height="0"
+            android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            app:rowCount="2"
-            app:columnCount="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,12 +71,11 @@
                 android:id="@+id/home_btn_word"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="@string/word"
-                app:layout_row="0"
-                app:layout_column="0"
-                app:layout_rowWeight="1"
-                app:layout_columnWeight="1" />
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/word" />
+                <!--app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />-->
 
             <Button
                 android:id="@+id/home_btn_listen"
@@ -86,23 +83,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/listen"
-                app:layout_row="0"
-                app:layout_column="1"
-                app:layout_rowWeight="1"
-                app:layout_columnWeight="1" />
+                android:text="@string/listen" />
+                <!--app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />-->
 
             <Button
                 android:id="@+id/home_btn_read"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@string/read"
-                app:layout_row="1"
-                app:layout_column="0"
-                app:layout_rowWeight="1"
-                app:layout_columnWeight="1" />
+                android:layout_marginBottom="8dp"
+                android:text="@string/read" />
+                <!--app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />-->
 
             <Button
                 android:id="@+id/home_btn_say"
@@ -110,12 +103,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="@string/say"
-                app:layout_row="1"
-                app:layout_column="1"
-                app:layout_rowWeight="1"
-                app:layout_columnWeight="1" />
-        </android.support.v7.widget.GridLayout>
+                android:text="@string/say"/>
+                <!--app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"-->
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
 

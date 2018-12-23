@@ -9,11 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.magicwords.R;
 import com.magicwords.model.User;
 import com.zhengsr.viewpagerlib.callback.PageHelperListener;
 import com.zhengsr.viewpagerlib.indicator.ZoomIndicator;
+import com.zhengsr.viewpagerlib.view.ArcImageView;
 import com.zhengsr.viewpagerlib.view.BannerViewPager;
 import com.zhengsr.viewpagerlib.bean.PageBean;
 import java.util.ArrayList;
@@ -31,7 +33,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends SupportFragment {
+public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_USER = "user";
     private static final String ARG_PARAM2 = "param2";
@@ -89,6 +91,7 @@ public class HomeFragment extends SupportFragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, v);
 
+        initBanner();
         return v;
     }
 
@@ -97,23 +100,6 @@ public class HomeFragment extends SupportFragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
     }
 
     /**
@@ -132,8 +118,8 @@ public class HomeFragment extends SupportFragment {
     }
 
     private void initBanner(){
-        mImgRes.add(R.drawable.img_3);
-        mImgRes.add(R.drawable.img_2);
+        mImgRes.add(R.mipmap.img_3);
+        mImgRes.add(R.mipmap.img_2);
 
         /*List<LoopBean> loopBeens = new ArrayList<>();
         for (int i = 0; i < TEXT.length; i++) {
@@ -149,11 +135,9 @@ public class HomeFragment extends SupportFragment {
                 .setIndicator(mZoomIndicator)
                 .builder();
 
-        mBanner.setPageListener(bean, R.id.home_banner, new PageHelperListener() {
-            @Override
-            public void getItemView(View view, Object o) {
-
-            }
+        mBanner.setPageListener(bean, R.layout.home_banner_layout, (PageHelperListener<Integer>) (view, data) -> {
+            ImageView imageView = view.findViewById(R.id.arc_icon);
+            imageView.setImageResource(data);
         });
     }
 }

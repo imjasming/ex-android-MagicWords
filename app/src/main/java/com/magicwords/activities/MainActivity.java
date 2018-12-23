@@ -3,6 +3,8 @@ package com.magicwords.activities;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,7 +23,7 @@ import me.yokeyword.fragmentation.BuildConfig;
 import me.yokeyword.fragmentation.Fragmentation;
 import me.yokeyword.fragmentation.SupportActivity;
 
-public class MainActivity extends SupportActivity
+public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -40,20 +42,18 @@ public class MainActivity extends SupportActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // 栈视图等功能，建议在Application里初始化
-        Fragmentation.builder()
-                // 显示悬浮球 ; 其他Mode:SHAKE: 摇一摇唤出   NONE：隐藏
-                .stackViewMode(Fragmentation.BUBBLE)
-                .debug(BuildConfig.DEBUG)
-             .install();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_container_main);
 
-        if (findFragment(HomeFragment.class) == null) {
-            loadRootFragment(R.id.fragment_container_main, HomeFragment.newInstance(new User()));  // 加载根Fragment
+        if (fragment == null){
+            fragment = HomeFragment.newInstance(new User());
+
+            fragmentManager.beginTransaction().add(R.id.fragment_container_main, fragment).commit();
         }
     }
 
     @Override
-    public void onBackPressedSupport() {
+    public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
