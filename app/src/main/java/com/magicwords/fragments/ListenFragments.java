@@ -39,7 +39,7 @@ public class ListenFragments  extends Fragment{
 
 
 
-        button1= (Button) getActivity().findViewById(R.id.button1);
+        button1 = (Button) getActivity().findViewById(R.id.button1);
         button2= (Button) getActivity().findViewById(R.id.button2);
         button3= (Button) getActivity().findViewById(R.id.button3);
         button4= (Button) getActivity().findViewById(R.id.button4);
