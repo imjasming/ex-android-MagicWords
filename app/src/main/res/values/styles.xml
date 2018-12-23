@@ -1,5 +1,4 @@
-<resources
-    xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools">
 
 
     <!-- Base application theme. -->
@@ -55,12 +54,12 @@
 
     <style name="ButtonNormal">
         <item name="android:textColor">@color/colorBackground</item>
-        <item name="android:background">@drawable/shape_button</item>
+        <item name="android:background">@drawable/shape_button_round</item>
     </style>
 
     <style name="ButtonNegative">
         <item name="android:textColor">@color/gray_cc</item>
-        <item name="android:background">@drawable/shape_button</item>
+        <item name="android:background">@drawable/shape_button_round</item>
     </style>
 
 </resources>

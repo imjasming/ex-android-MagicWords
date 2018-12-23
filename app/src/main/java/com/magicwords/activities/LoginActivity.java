@@ -1,21 +1,22 @@
 package com.magicwords.activities;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.magicwords.MainActivity;
+import com.magicwords.net.RestClient;
+import com.magicwords.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
 
-    /*@BindView(R.id.edt_login_username)
+    @BindView(R.id.edt_login_username)
     TextInputEditText mName;
     @BindView(R.id.edt_login_password)
     TextInputEditText mPassword;
@@ -28,17 +29,17 @@ public class LoginActivity extends AppCompatActivity {
 
     private String username;
     private String password;
-    private String email;*/
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*setContentView(R.layout.login_activity);
+        setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
         mLoginButton.setOnClickListener((View v) -> {
             if (checkForm()){
-                RestClient.builder()
+                /*RestClient.builder()
                         .url("/signin")
                         .params("username", username)
                         .params("password", password)
@@ -56,18 +57,21 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(this, "用户名或密码输入错误",Toast.LENGTH_LONG).show();
                         })
                         .build()
-                        .post();
+                        .post();*/
 
-                //this.finish();
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                Toast.makeText(this, "test",Toast.LENGTH_LONG).show();
+                this.finish();
             }
         });
         mRegisterButton.setOnClickListener((View v) -> {
-            Intent intent = new Intent(this, RegisterActivity.class);
+            Intent intent = new Intent(this, SignUpActivity.class);
             startActivity(intent);
-        });*/
+        });
     }
 
-    /*private boolean checkForm() {
+    private boolean checkForm() {
         username = mName.getText().toString();
         password = mPassword.getText().toString();
 
@@ -85,5 +89,5 @@ public class LoginActivity extends AppCompatActivity {
             mPassword.setError(null);
         }
         return isPass;
-    }*/
+    }
 }
