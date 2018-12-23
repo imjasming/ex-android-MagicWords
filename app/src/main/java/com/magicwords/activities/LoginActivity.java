@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import database.MagicwordDbSchema.*;
 
 import com.magicwords.net.RestClient;
 import com.magicwords.R;

@@ -1,5 +1,6 @@
 package com.magicwords.fragments;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.magicwords.R;
 import com.magicwords.model.User;
 
+import database.MagicwordDbSchema.MagicwordBaseHelper;
 import me.yokeyword.fragmentation.SupportFragment;
 public class ListenFragments  extends Fragment{
     private TextView Textview1;
@@ -22,6 +24,7 @@ public class ListenFragments  extends Fragment{
     private Button button2;
     private Button button3;
     private Button button4;
+    private MagicwordBaseHelper helper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,18 @@ public class ListenFragments  extends Fragment{
         Textview1 = (TextView)v.findViewById(R.id.textView);
         content="gogogo";   //test
         Textview1.setText(content);
+
+
+
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.beginTransaction();//开启事务
+        try {
+        db.execSQL("Select word,yinbiao from Magicworddb");
+        db.setTransactionSuccessful();
+        } catch (Exception e){
+        } finally {
+        db.endTransaction();//关闭事务
+        }
 
 
 
