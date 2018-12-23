@@ -59,10 +59,6 @@ public class TeachingFragment extends BaseBackFragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_teaching, container, false);
         ButterKnife.bind(this, v);
-
-        Toolbar toolbar = v.findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.say);
-        initToolbarNav(toolbar);
         mediaController = new MediaController(v.getContext());
         get_package_name = v.getContext().getPackageName();
         return v;
