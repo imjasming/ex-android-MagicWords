@@ -1,10 +1,12 @@
 package com.magicwords.net;
 
-import com.xiaoming.exercise.mygymclub.net.callback.IError;
-import com.xiaoming.exercise.mygymclub.net.callback.IFailure;
-import com.xiaoming.exercise.mygymclub.net.callback.IRequest;
-import com.xiaoming.exercise.mygymclub.net.callback.ISuccess;
-import com.xiaoming.exercise.mygymclub.net.callback.RequestCallbacks;
+//import com.xiaoming.exercise.mygymclub.net.callback.IError;
+//import com.xiaoming.exercise.mygymclub.net.callback.IFailure;
+//import com.xiaoming.exercise.mygymclub.net.callback.IRequest;
+//import com.xiaoming.exercise.mygymclub.net.callback.ISuccess;
+//import com.xiaoming.exercise.mygymclub.net.callback.RequestCallbacks;
+
+import  com.magicwords.net.callback.*;
 
 import java.util.WeakHashMap;
 
