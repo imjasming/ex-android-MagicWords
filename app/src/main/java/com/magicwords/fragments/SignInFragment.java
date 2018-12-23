@@ -3,73 +3,53 @@ package com.magicwords.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.magicwords.R;
-import com.magicwords.model.User;
-import com.zhengsr.viewpagerlib.callback.PageHelperListener;
-import com.zhengsr.viewpagerlib.indicator.ZoomIndicator;
-import com.zhengsr.viewpagerlib.view.BannerViewPager;
-import com.zhengsr.viewpagerlib.bean.PageBean;
-import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportFragment;
-
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeFragment.OnFragmentInteractionListener} interface
+ * {@link SignInFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link SignInFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends SupportFragment {
+public class SignInFragment extends SupportFragment {
+    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_USER = "user";
+    private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private String mParamUser;
+    // TODO: Rename and change types of parameters
+    private String mParam1;
     private String mParam2;
-
-    @BindView(R.id.home_banner)
-    BannerViewPager mBanner;
-    @BindView(R.id.home_banner_zoom_indicator)
-    ZoomIndicator mZoomIndicator;
-    @BindView(R.id.home_btn_word)
-    Button mBtnWord;
-    @BindView(R.id.home_btn_say)
-    Button mBtnSay;
-    @BindView(R.id.home_btn_read)
-    Button mBtnRead;
-    @BindView(R.id.home_btn_listen)
-    Button mBtnListen;
-
-    private ArrayList<Integer> mImgRes = new ArrayList<>();
 
     private OnFragmentInteractionListener mListener;
 
-    public HomeFragment() {
+    public SignInFragment() {
         // Required empty public constructor
     }
 
     /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
      *
-     * @param user Parameter 1.
-     * @return A new instance of fragment HomeFragment.
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment SignInFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(User user) {
-        HomeFragment fragment = new HomeFragment();
+    public static SignInFragment newInstance(String param1, String param2) {
+        SignInFragment fragment = new SignInFragment();
         Bundle args = new Bundle();
-        args.putSerializable(ARG_USER, user);
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -78,18 +58,16 @@ public class HomeFragment extends SupportFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParamUser = getArguments().getString(ARG_USER);
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_home, container, false);
-        ButterKnife.bind(this, v);
-
-        return v;
+        return inflater.inflate(R.layout.fragment_sign_in, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -129,31 +107,5 @@ public class HomeFragment extends SupportFragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    private void initBanner(){
-        mImgRes.add(R.drawable.img_3);
-        mImgRes.add(R.drawable.img_2);
-
-        /*List<LoopBean> loopBeens = new ArrayList<>();
-        for (int i = 0; i < TEXT.length; i++) {
-            LoopBean bean = new LoopBean();
-            bean.url = RESURL[i];
-            bean.text = TEXT[i];
-            loopBeens.add(bean);
-
-        }*/
-
-        PageBean bean = new PageBean.Builder<Integer>()
-                .setDataObjects(mImgRes)
-                .setIndicator(mZoomIndicator)
-                .builder();
-
-        mBanner.setPageListener(bean, R.id.home_banner, new PageHelperListener() {
-            @Override
-            public void getItemView(View view, Object o) {
-
-            }
-        });
     }
 }

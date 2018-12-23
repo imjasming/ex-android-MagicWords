@@ -10,17 +10,15 @@ import android.view.ViewGroup;
 
 import com.magicwords.R;
 
-import me.yokeyword.fragmentation.SupportFragment;
-
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SignIn.OnFragmentInteractionListener} interface
+ * {@link SignUpFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SignIn#newInstance} factory method to
+ * Use the {@link SignUpFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SignIn extends SupportFragment {
+public class SignUpFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,7 +30,7 @@ public class SignIn extends SupportFragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SignIn() {
+    public SignUpFragment() {
         // Required empty public constructor
     }
 
@@ -42,11 +40,11 @@ public class SignIn extends SupportFragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SignIn.
+     * @return A new instance of fragment SignUpFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SignIn newInstance(String param1, String param2) {
-        SignIn fragment = new SignIn();
+    public static SignUpFragment newInstance(String param1, String param2) {
+        SignUpFragment fragment = new SignUpFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,7 +65,7 @@ public class SignIn extends SupportFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_in, container, false);
+        return inflater.inflate(R.layout.fragment_sign_up, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
