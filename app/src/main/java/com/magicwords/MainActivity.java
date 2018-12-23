@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import com.magicwords.activities.ReadingActivity;
+import com.magicwords.activities.SQLiteActivity;
 import com.magicwords.activities.TeachingActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ReadingActivity.class);
+                Intent intent = new Intent(MainActivity.this,SQLiteActivity.class);
                 startActivity(intent);
             }
         });

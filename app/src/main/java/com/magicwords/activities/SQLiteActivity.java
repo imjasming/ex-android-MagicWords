@@ -26,42 +26,42 @@ public class SQLiteActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.main);
+        setContentView(R.layout.sql_main);
+//调用creatView方法
+        creatView();
+//setListener方法
+        setListener();
 
-////调用creatView方法
-//        creatView();
-////setListener方法
-//        setListener();
+    }
+    //通过findViewById获得Button对象的方法
+    private void creatView(){
+        createBtn = (Button)findViewById(R.id.createDatabase);
+        updateBtn = (Button)findViewById(R.id.updateDatabase);
+        insertBtn = (Button)findViewById(R.id.insert);
+        ModifyBtn = (Button)findViewById(R.id.update);
+        queryBtn = (Button)findViewById(R.id.query);
+        deleteBtn = (Button)findViewById(R.id.delete);
     }
 
-//    //通过findViewById获得Button对象的方法
-//    private void creatView(){
-//        createBtn = (Button)findViewById(R.id.createDatabase);
-//        updateBtn = (Button)findViewById(R.id.updateDatabase);
-//        insertBtn = (Button)findViewById(R.id.insert);
-//        ModifyBtn = (Button)findViewById(R.id.update);
-//        queryBtn = (Button)findViewById(R.id.query);
-//        deleteBtn = (Button)findViewById(R.id.delete);
-//    }
-//
-//    //为按钮注册监听的方法
-//    private void setListener(){
-//        createBtn.setOnClickListener(new CreateListener());
-//        updateBtn.setOnClickListener(new UpdateListener());
-//        insertBtn.setOnClickListener(new InsertListener());
-//        ModifyBtn.setOnClickListener(new ModifyListener());
-//        queryBtn.setOnClickListener(new QueryListener());
-//        deleteBtn.setOnClickListener(new DeleteListener());
-//    }
+    //为按钮注册监听的方法
+    private void setListener(){
+        createBtn.setOnClickListener(new CreateListener());
+        updateBtn.setOnClickListener(new UpdateListener());
+        insertBtn.setOnClickListener(new InsertListener());
+        ModifyBtn.setOnClickListener(new ModifyListener());
+        queryBtn.setOnClickListener(new QueryListener());
+        deleteBtn.setOnClickListener(new DeleteListener());
+    }
+
 
     //创建数据库的方法
     class CreateListener implements OnClickListener{
 
         @Override
         public void onClick(View v) {
-//创建StuDBHelper对象
+    //创建StuDBHelper对象
             StuDBHelper dbHelper = new StuDBHelper(SQLiteActivity.this,"words",null,1);
-//得到一个可读的SQLiteDatabase对象
+    //得到一个可读的SQLiteDatabase对象
             SQLiteDatabase db =dbHelper.getReadableDatabase();
         }
     }
@@ -90,10 +90,12 @@ public class SQLiteActivity extends Activity {
 //生成ContentValues对象 //key:列名，value:想插入的值
             ContentValues cv = new ContentValues();
 //往ContentValues对象存放数据，键-值对模式
-            cv.put("id", 0);
-            cv.put("word", "xiaoming");
-            cv.put("sage", 21);
-            cv.put("ssex", "male");
+            cv.put("id", 1);
+            cv.put("word", "deflect");
+            cv.put("yinbiao", "[di'flekt]");
+            cv.put("shiyi", " v. 打歪,使偏,歪");
+            cv.put("liju"," The ball hit one of the defenders and was deflected into the net./r/n     球射中一名後卫後反弹进网./r/n\n" +
+                    " The missile deflected from its trajectory./r/n     导弹已偏离轨道./r/n");
 //调用insert方法，将数据插入数据库
             db.insert("words", null, cv);
 //关闭数据库
