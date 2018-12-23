@@ -1,6 +1,5 @@
-package com.magicwords;
+package com.magicwords.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,38 +12,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 
-import com.magicwords.activities.ReadingActivity;
-import com.magicwords.activities.SQLiteActivity;
-import com.magicwords.activities.TeachingActivity;
+import com.magicwords.R;
+import com.magicwords.fragments.HomeFragment;
+import com.magicwords.model.User;
 
-public class MainActivity extends AppCompatActivity
+import me.yokeyword.fragmentation.BuildConfig;
+import me.yokeyword.fragmentation.Fragmentation;
+import me.yokeyword.fragmentation.SupportActivity;
+
+public class MainActivity extends SupportActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private Button start;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        start = findViewById(R.id.begin_btn);
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SQLiteActivity.class);
-                startActivity(intent);
-            }
-        });
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -54,9 +39,20 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // 栈视图等功能，建议在Application里初始化
+        Fragmentation.builder()
+                // 显示悬浮球 ; 其他Mode:SHAKE: 摇一摇唤出   NONE：隐藏
+                .stackViewMode(Fragmentation.BUBBLE)
+                .debug(BuildConfig.DEBUG)
+             .install();
+
+        if (findFragment(HomeFragment.class) == null) {
+            loadRootFragment(R.id.fragment_container_main, HomeFragment.newInstance(new User()));  // 加载根Fragment
+        }
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -64,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

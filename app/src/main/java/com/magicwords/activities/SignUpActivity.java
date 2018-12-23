@@ -1,31 +1,32 @@
 package com.magicwords.activities;
 
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.magicwords.net.RestClient;
 import com.magicwords.R;
+import com.magicwords.net.RestClient;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
-    @BindView(R.id.edt_login_username)
+    @BindView(R.id.edt_register_username)
     TextInputEditText mName;
-    @BindView(R.id.edt_login_password)
+    @BindView(R.id.edt_register_email)
+    TextInputEditText mEmail;
+    @BindView(R.id.edt_register_password)
     TextInputEditText mPassword;
-    @BindView(R.id.btn_login_login)
-    Button mLoginButton;
-    @BindView(R.id.btn_login_register)
-    Button mRegisterButton;
-    @BindView(R.id.btn_login_forget)
-    Button mForgetButton;
+    @BindView(R.id.edt_register_password_2)
+    TextInputEditText mPassword2;
+    @BindView(R.id.btn_register_confirm)
+    Button mConfirm;
+    @BindView(R.id.btn_register_back)
+    Button mBack;
 
     private String username;
     private String password;
@@ -34,44 +35,37 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
 
-        mLoginButton.setOnClickListener((View v) -> {
-            if (checkForm()){
+        mConfirm.setOnClickListener(v -> {
+            if (checkForm()) {
                 RestClient.builder()
-                        .url("/signin")
+                        .url("/signup")
                         .params("username", username)
+                        .params("email", email)
                         .params("password", password)
                         .success(response -> {
-                            Intent intent = new Intent(this, MainActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(this, response,Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, response, Toast.LENGTH_LONG).show();
                             this.finish();
                         })
-                        .failure(response -> {
-                            response.printStackTrace();
-                            Toast.makeText(this, response.toString(),Toast.LENGTH_LONG).show();
-                        })
                         .error((code, msg) -> {
-                            Toast.makeText(this, "用户名或密码输入错误",Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, "注册失败", Toast.LENGTH_LONG).show();
                         })
                         .build()
                         .post();
 
-                //this.finish();
             }
         });
-        mRegisterButton.setOnClickListener((View v) -> {
-            Intent intent = new Intent(this, SignUpActivity.class);
-            startActivity(intent);
-        });
+
+        mBack.setOnClickListener(e -> onBack());
     }
 
     private boolean checkForm() {
         username = mName.getText().toString();
+        email = mEmail.getText().toString();
         password = mPassword.getText().toString();
-
+        final String reRassword = mPassword2.getText().toString();
         boolean isPass = true;
         if (username.isEmpty()) {
             mName.setError("请输用户名");
@@ -79,12 +73,27 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             mName.setError(null);
         }
+        if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            mEmail.setError("错误的邮箱格式");
+        } else {
+            mEmail.setError(null);
+        }
         if (password.isEmpty() || password.length() < 6) {
             mPassword.setError("请输入至少六位数密码");
             isPass = false;
         } else {
             mPassword.setError(null);
         }
+        if (reRassword.isEmpty() || reRassword.length() < 6 || !reRassword.equals(password)) {
+            mPassword2.setError("密码验证错误");
+            isPass = false;
+        } else {
+            mPassword2.setError(null);
+        }
         return isPass;
+    }
+
+    private void onBack() {
+        this.finish();
     }
 }
