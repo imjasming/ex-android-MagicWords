@@ -1,64 +1,101 @@
 package com.magicwords.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.magicwords.R;
 import com.magicwords.fragments.HomeFragment;
-import com.magicwords.model.User;
+import com.magicwords.fragments.UserCenterFragment;
 
-import me.yokeyword.fragmentation.BuildConfig;
-import me.yokeyword.fragmentation.Fragmentation;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportActivity;
+import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
+import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends SupportActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public static final String TAG = MainActivity.class.getSimpleName();
+
+    // 再点一次退出程序时间设置
+    private static final long WAIT_TIME = 2000L;
+    private long TOUCH_TIME = 0;
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout mDrawerLayout;
+    @BindView(R.id.nav_view)
+    NavigationView mNavigationView;
+
+    //@BindView(R.id.nav_head_img)
+    ImageView mNavImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        SupportFragment fragment = findFragment(HomeFragment.class);
+        if (fragment == null) {
+            loadRootFragment(R.id.fragment_container_main, HomeFragment.newInstance());
+        }
+
+        initView();
+    }
+
+    private void initView() {
+        setSupportActionBar(mToolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+                this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        mNavigationView.setNavigationItemSelectedListener(this);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_container_main);
+        View navHeader = mNavigationView.getHeaderView(0);
 
-        if (fragment == null){
-            fragment = HomeFragment.newInstance(new User());
+        navHeader.setOnClickListener(e ->{
+            final ISupportFragment topFragment = getTopFragment();
+            SupportFragment home = (SupportFragment)topFragment;
+            home.start(UserCenterFragment.newInstance(), SupportFragment.SINGLETASK);
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        });
 
-            fragmentManager.beginTransaction().add(R.id.fragment_container_main, fragment).commit();
-        }
     }
 
     @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+    public void onBackPressedSupport() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            ISupportFragment topFragment = getTopFragment();
+
+            if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+                pop();
+            } else {
+                if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
+                    finish();
+                } else {
+                    TOUCH_TIME = System.currentTimeMillis();
+                    Toast.makeText(this, R.string.press_again_exit, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            //super.onBackPressed();
         }
     }
 
@@ -76,10 +113,10 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        /*//noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -89,14 +126,16 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        final ISupportFragment topFragment = getTopFragment();
+        SupportFragment home = (SupportFragment)topFragment;
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_notification) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_word_book) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_course) {
+
+        } else if (id == R.id.nav_activity) {
 
         } else if (id == R.id.nav_share) {
 
@@ -104,8 +143,14 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public FragmentAnimator onCreateFragmentAnimator() {
+        // 设置横向(和安卓4.x动画相同)
+        return new DefaultHorizontalAnimator();
     }
 }

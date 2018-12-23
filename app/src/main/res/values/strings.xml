@@ -32,4 +32,10 @@
     <string name="course">课程</string>
     <string name="activity">活动</string>
     <string name="settings">设置</string>
+    <string name="notification">通知</string>
+    <string name="level">等级</string>
+    <string name="person_intro">个人介绍</string>
+    <string name="person_intro_content">这个人很懒，什么都没有留下......</string>
+    <string name="press_again_exit">再按一次退出</string>
+    <string name="user_center">个人中心</string>
 </resources>

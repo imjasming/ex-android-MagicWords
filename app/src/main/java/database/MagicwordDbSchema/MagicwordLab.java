@@ -1,4 +1,4 @@
 package database.MagicwordDbSchema;
 
-public class Magicworduseway {
+public class MagicLab {
 }
