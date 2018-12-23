@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="103dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="379dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="317dp"
+        android:layout_marginTop="388dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:text="Button"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="398dp"
+            tools:text="Again!"
+            tools:visibility="gone" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="Button"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="451dp"
+            tools:text="Get it!" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="379dp"
+            android:layout_height="65dp"
+            android:text="Button"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="398dp"
+            tools:text="Next!" />
+
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="379dp"
+            android:layout_height="79dp"
+            android:text="Button"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="451dp"
+            tools:text="Show answer" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
+
