@@ -21,13 +21,13 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 public class TeachingFragment extends BaseBackFragment {
     @BindView(R.id.video_movie)
-    private VideoView videoView;
+    VideoView videoView;
     @BindView(R.id.btn_movie_1)
-    private Button movie_1;
+    Button movie_1;
     @BindView(R.id.btn_movie_2)
-    private Button movie_2;
+    Button movie_2;
     @BindView(R.id.btn_movie_3)
-    private Button movie_3;
+    Button movie_3;
 
     private String get_package_name;
     private MediaController mediaController;

@@ -52,9 +52,6 @@ public class ReadingFragment extends BaseBackFragment {
         View v = inflater.inflate(R.layout.fragment_reading, container, false);
         ButterKnife.bind(this, v);
 
-        Toolbar toolbar = v.findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.read);
-        initToolbarNav(toolbar);
         return v;
     }
 
