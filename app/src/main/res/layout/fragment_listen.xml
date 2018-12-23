@@ -25,9 +25,7 @@
         android:layout_width="379dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
@@ -45,41 +43,40 @@
         <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:text="Button"
+            android:layout_height="65dp"
+            android:text="Again!"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="398dp"
-            tools:text="Again!"
-            tools:visibility="gone" />
+            tools:layout_editor_absoluteY="398dp" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:text="Button"
+            android:text="Get it!"
             android:visibility="visible"
             tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="451dp"
-            tools:text="Get it!" />
+            tools:layout_editor_absoluteY="451dp" />
+
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="379dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:text="Button"
+            android:text="Next!"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="398dp"
-            tools:text="Next!" />
-
+            tools:layout_editor_absoluteY="398dp" />
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="379dp"
-            android:layout_height="79dp"
-            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="Show answer"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="451dp"
-            tools:text="Show answer" />
+            tools:layout_editor_absoluteY="451dp" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
 
