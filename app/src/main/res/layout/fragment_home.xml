@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
+    <include
+        android:id="@+id/home_toolbar"
+        layout="@layout/toolbar"/>
+
     <FrameLayout
         android:id="@+id/banner_container"
         android:layout_width="match_parent"
@@ -14,7 +18,7 @@
         android:paddingTop="20dp"
         zsr:layout_constraintEnd_toEndOf="parent"
         zsr:layout_constraintStart_toStartOf="parent"
-        zsr:layout_constraintTop_toTopOf="parent">
+        zsr:layout_constraintTop_toBottomOf="@+id/home_toolbar">
 
         <com.zhengsr.viewpagerlib.view.BannerViewPager
             android:id="@+id/home_banner"
@@ -42,8 +46,7 @@
         android:id="@+id/home_layout_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        android:padding="48dp"
+        android:padding="42dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/banner_container">
 
