@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toolbar;
+import android.support.v7.widget.Toolbar;
 
 import com.magicwords.R;
 import com.magicwords.model.User;
@@ -59,8 +59,9 @@ public class UserCenterFragment extends BaseBackFragment {
         View v = inflater.inflate(R.layout.fragment_person_page, container, false);
         ButterKnife.bind(this, v);
 
-        /*Toolbar toolbar = v.findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.user_center);*/
+        Toolbar toolbar = v.findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.user_center);
+        initToolbarNav(toolbar);
         return v;
     }
 
