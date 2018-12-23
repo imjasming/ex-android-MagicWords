@@ -1,4 +1,5 @@
 package com.magicwords.fragments;
+
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,13 +16,18 @@ import com.magicwords.R;
 import com.magicwords.model.User;
 
 import me.yokeyword.fragmentation.SupportFragment;
-public class ListenFragments  extends Fragment{
+
+public class ListenFragments extends BaseBackFragment {
     private TextView Textview1;
     private String content; //用以显示文本数据
     private Button button1;
     private Button button2;
     private Button button3;
     private Button button4;
+
+    public static ListenFragments newInstence() {
+        return new ListenFragments();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,17 +38,16 @@ public class ListenFragments  extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_listen, container, false);
-        Textview1 = (TextView)v.findViewById(R.id.textView);
-        content="gogogo";   //test
+        View v = inflater.inflate(R.layout.fragment_listen, container, false);
+        Textview1 = (TextView) v.findViewById(R.id.textView);
+        content = "gogogo";   //test
         Textview1.setText(content);
 
 
-
-        button1= (Button) getActivity().findViewById(R.id.button1);
-        button2= (Button) getActivity().findViewById(R.id.button2);
-        button3= (Button) getActivity().findViewById(R.id.button3);
-        button4= (Button) getActivity().findViewById(R.id.button4);
+        button1 = v.findViewById(R.id.button1);
+        button2 = v.findViewById(R.id.button2);
+        button3 = v.findViewById(R.id.button3);
+        button4 = v.findViewById(R.id.button4);
         //按钮功能（目前仅有跳转）
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +65,7 @@ public class ListenFragments  extends Fragment{
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 //再来一句
+                //再来一句
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +78,8 @@ public class ListenFragments  extends Fragment{
         return v;
     }
 
-
-
-
+    @Override
+    public boolean onBackPressedSupport() {
+        return super.onBackPressedSupport();
+    }
 }

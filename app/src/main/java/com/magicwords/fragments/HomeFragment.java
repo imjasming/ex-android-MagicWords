@@ -18,10 +18,13 @@ import com.zhengsr.viewpagerlib.indicator.ZoomIndicator;
 import com.zhengsr.viewpagerlib.view.ArcImageView;
 import com.zhengsr.viewpagerlib.view.BannerViewPager;
 import com.zhengsr.viewpagerlib.bean.PageBean;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportFragment;
 
 
@@ -63,7 +66,6 @@ public class HomeFragment extends SupportFragment {
     }
 
     /**
-     *
      * @return A new instance of fragment HomeFragment.
      */
     public static HomeFragment newInstance() {
@@ -105,12 +107,24 @@ public class HomeFragment extends SupportFragment {
         }
     }
 
+    @OnClick({R.id.home_btn_listen, R.id.home_btn_read, R.id.home_btn_word, R.id.home_btn_say,})
+    public void onClick(View v) {
+        final ISupportFragment topFragment = getTopFragment();
+        SupportFragment home = (SupportFragment) topFragment;
+
+        switch (v.getId()) {
+            case R.id.home_btn_listen:
+                home.start(ListenFragments.newInstence(), SupportFragment.SINGLETASK);
+                break;
+        }
+    }
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 
-    private void initBanner(){
+    private void initBanner() {
         mImgRes.add(R.mipmap.img_3);
         mImgRes.add(R.mipmap.img_2);
 
