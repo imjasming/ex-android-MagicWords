@@ -38,4 +38,7 @@
     <string name="person_intro_content">这个人很懒，什么都没有留下......</string>
     <string name="press_again_exit">再按一次退出</string>
     <string name="user_center">个人中心</string>
+    <string name="title_activity_teaching">teachingActivity</string>
+    <string name="translate">translate</string>
+    <string name="next_passage">next passage</string>
 </resources>

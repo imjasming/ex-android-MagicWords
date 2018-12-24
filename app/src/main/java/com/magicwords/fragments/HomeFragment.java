@@ -1,23 +1,19 @@
 package com.magicwords.fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.magicwords.R;
-import com.magicwords.model.User;
 import com.zhengsr.viewpagerlib.callback.PageHelperListener;
 import com.zhengsr.viewpagerlib.indicator.ZoomIndicator;
-import com.zhengsr.viewpagerlib.view.ArcImageView;
 import com.zhengsr.viewpagerlib.view.BannerViewPager;
 import com.zhengsr.viewpagerlib.bean.PageBean;
 
@@ -124,8 +120,10 @@ public class HomeFragment extends BaseMainFragment {
 
         switch (v.getId()) {
             case R.id.home_btn_listen:
-                home.start(ListenFragments.newInstence(), SupportFragment.SINGLETASK);
+                home.start(ListenFragment.newInstence(), SupportFragment.SINGLETASK);
                 break;
+            case R.id.home_btn_read:
+                home.start(ReadingFragment.newInstance(), SupportFragment.SINGLETASK);
         }
     }
 

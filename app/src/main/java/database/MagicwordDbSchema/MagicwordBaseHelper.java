@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.magicwords.fragments.ListenFragments;
+import com.magicwords.fragments.ListenFragment;
 
 public class MagicwordBaseHelper extends SQLiteOpenHelper {
     private static final int VERSION=1;
