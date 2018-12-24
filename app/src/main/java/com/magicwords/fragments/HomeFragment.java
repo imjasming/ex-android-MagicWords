@@ -122,6 +122,8 @@ public class HomeFragment extends BaseMainFragment {
             case R.id.home_btn_listen:
                 home.start(ListenFragment.newInstence(), SupportFragment.SINGLETASK);
                 break;
+            case R.id.home_btn_read:
+                home.start(ReadingFragment.newInstance(), SupportFragment.SINGLETASK);
         }
     }
 

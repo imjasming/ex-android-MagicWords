@@ -1,4 +1,4 @@
-package com.magicwords.activities;
+package com.magicwords;
 
 import com.magicwords.sql.StuDBHelper;
 import com.magicwords.R;
