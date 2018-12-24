@@ -51,11 +51,11 @@ public class ActivityWord2 extends BaseBackFragment implements View.OnClickListe
         switch (view.getId()){
             case R.id.depth2_1:
                 Toast.makeText(getContext(), "点击depth1", Toast.LENGTH_SHORT).show();
-                replaceFragment(ActivityWord3.newInstance(), false);
+                startWithPop(ActivityWord3.newInstance());
                 break;
             case R.id.depth2_2:
                 Toast.makeText(getContext(), "点击depth2", Toast.LENGTH_SHORT).show();
-                replaceFragment(ActivityWord3.newInstance(), false);
+                startWithPop(ActivityWord3.newInstance());
                 break;
         }
     }
