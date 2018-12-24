@@ -46,11 +46,11 @@
         android:id="@+id/home_layout_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="42dp"
+        android:padding="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/banner_container">
 
-        <Button
+        <TextView
             android:id="@+id/home_btn_study_times"
             android:layout_width="match_parent"
             android:layout_height="48dp" />
@@ -74,16 +74,16 @@
                 <Button
                     android:id="@+id/home_btn_word"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/word" />
+                    android:text="@string/word"
+                    style="@style/BtnHome"/>
 
                 <Button
                     android:id="@+id/home_btn_listen"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/listen" />
+                    android:text="@string/listen"
+                    style="@style/BtnHome"/>
             </LinearLayout>
 
             <LinearLayout
@@ -94,16 +94,16 @@
                 <Button
                     android:id="@+id/home_btn_read"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/read" />
+                    android:text="@string/read"
+                    style="@style/BtnHome"/>
 
                 <Button
                     android:id="@+id/home_btn_say"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/say" />
+                    android:text="@string/say"
+                    style="@style/BtnHome"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>

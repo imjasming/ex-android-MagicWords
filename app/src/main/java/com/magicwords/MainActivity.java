@@ -1,6 +1,7 @@
 package com.magicwords;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,7 +25,8 @@ import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 public class MainActivity extends SupportActivity
-        implements NavigationView.OnNavigationItemSelectedListener, BaseMainFragment.OnFragmentOpenDrawerListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        BaseMainFragment.OnFragmentOpenDrawerListener {
     public static final String TAG = MainActivity.class.getSimpleName();
 
     // 再点一次退出程序时间设置
@@ -66,9 +68,9 @@ public class MainActivity extends SupportActivity
 
         View navHeader = mNavigationView.getHeaderView(0);
         mHeadImg = navHeader.findViewById(R.id.nav_head_img);
-        mHeadImg.setOnClickListener(e ->{
+        mHeadImg.setOnClickListener(e -> {
             final ISupportFragment topFragment = getTopFragment();
-            SupportFragment home = (SupportFragment)topFragment;
+            SupportFragment home = (SupportFragment) topFragment;
             home.start(UserCenterFragment.newInstance(), SupportFragment.SINGLETASK);
             mDrawerLayout.closeDrawer(GravityCompat.START);
         });
@@ -121,11 +123,11 @@ public class MainActivity extends SupportActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         final ISupportFragment topFragment = getTopFragment();
-        SupportFragment home = (SupportFragment)topFragment;
+        SupportFragment home = (SupportFragment) topFragment;
 
         if (id == R.id.nav_notification) {
 
@@ -154,7 +156,7 @@ public class MainActivity extends SupportActivity
 
     @Override
     public void onOpenDrawer() {
-        if (!mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (!mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.openDrawer(GravityCompat.START);
         }
     }

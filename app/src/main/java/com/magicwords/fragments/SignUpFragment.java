@@ -80,10 +80,9 @@ public class SignUpFragment extends BaseBackFragment {
                         })
                         .build()
                         .post();*/
-
+                Toast.makeText(getContext(), "test", Toast.LENGTH_LONG).show();
+                pop();
             }
-            Toast.makeText(getContext(), "test", Toast.LENGTH_LONG).show();
-            pop();
         });
 
         mBack.setOnClickListener(e -> pop());

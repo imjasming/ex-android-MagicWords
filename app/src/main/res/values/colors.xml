@@ -4,9 +4,11 @@
     <color name="colorPrimary">#4699fc</color>
     <color name="colorPrimaryDark">#3F51B5</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="windowBackground">#ecebe7</color>
     <!--<color name="colorBackground">#eef0f6</color>-->
-
-    <color name="colorBackground">#eef0f6</color>
+    <color name="colorSecond">#c84699fc</color>
+    <color name="colorBackground">#ecebe7</color>
+    <color name="colorTextView">#f6f4f0</color>
     <!--透明色 -->
     <color name="transparent">#00000000</color>
     <!--白色 -->
