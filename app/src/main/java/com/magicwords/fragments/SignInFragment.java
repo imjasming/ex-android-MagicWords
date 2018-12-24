@@ -93,7 +93,7 @@ public class SignInFragment extends BaseBackFragment {
 
         Toolbar toolbar = v.findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.login);
-        initToolbarNav(toolbar);
+        /*initToolbarNav(toolbar);*/
 
         return v;
     }

@@ -9,78 +9,99 @@
     <include layout="@layout/toolbar"
         android:id="@+id/listen_toolbar"/>
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="103dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listen_toolbar"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="379dp"
-        android:layout_height="252dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="317dp"
-        android:layout_marginTop="388dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listen_toolbar"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="6dp">
 
-        <Button
-            android:id="@+id/button1"
+        <LinearLayout
+            android:id="@+id/linearLayout0"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:text="Again!"
-            android:visibility="visible"
-            tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="398dp" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_border_tb"
+            android:paddingVertical="2dp">
 
-        <Button
-            android:id="@+id/button2"
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="300dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/ic_volume_up_black_24dp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:text="Get it!"
-            android:visibility="visible"
-            tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="451dp" />
+            android:layout_height="0dp"
+            android:text="TextView"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout0" />
 
-
-        <Button
-            android:id="@+id/button3"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:text="Next!"
-            android:visibility="visible"
-            tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="398dp" />
+            android:layout_height="128dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:text="Show answer"
-            android:visibility="visible"
-            tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="451dp" />
+            <Button
+                android:id="@+id/button1"
+                style="@style/ButtonSecond"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Again!"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="3dp"
+                tools:layout_editor_absoluteY="398dp" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/button2"
+                style="@style/ButtonSecond"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Get it!"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="3dp"
+                tools:layout_editor_absoluteY="451dp" />
+
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/ButtonSecond"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Next!"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="3dp"
+                tools:layout_editor_absoluteY="398dp" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/ButtonSecond"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Show answer"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="3dp"
+                tools:layout_editor_absoluteY="451dp" />
+
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>
 

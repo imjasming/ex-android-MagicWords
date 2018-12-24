@@ -89,7 +89,7 @@
 
             <Button
                 android:id="@+id/btn_register_confirm"
-                style="@style/ButtonNormal"
+                style="@style/ButtonRound"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -98,7 +98,7 @@
 
             <Button
                 android:id="@+id/btn_register_back"
-                style="@style/ButtonNormal"
+                style="@style/ButtonRound"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

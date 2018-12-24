@@ -35,7 +35,7 @@
         <!--Login Button-->
         <Button
             android:id="@+id/btn_login_login"
-            style="@style/ButtonNormal"
+            style="@style/ButtonRound"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
