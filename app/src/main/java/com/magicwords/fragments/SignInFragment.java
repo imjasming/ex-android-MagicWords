@@ -1,55 +1,45 @@
 package com.magicwords.fragments;
 
-import android.content.Context;
-import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.magicwords.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SignInFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SignInFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class SignInFragment extends SupportFragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class SignInFragment extends BaseBackFragment {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    @BindView(R.id.edt_login_username)
+    TextInputEditText mName;
+    @BindView(R.id.edt_login_password)
+    TextInputEditText mPassword;
+    @BindView(R.id.btn_login_login)
+    Button mLoginButton;
+    @BindView(R.id.btn_login_register)
+    Button mRegisterButton;
+    @BindView(R.id.btn_login_forget)
+    Button mForgetButton;
 
-    private OnFragmentInteractionListener mListener;
+    private String username;
+    private String password;
+    private String email;
 
-    public SignInFragment() {
-        // Required empty public constructor
-    }
+    public SignInFragment(){}
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SignInFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SignInFragment newInstance(String param1, String param2) {
-        SignInFragment fragment = new SignInFragment();
+    public static SignInFragment newInstance() {
+
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+
+        SignInFragment fragment = new SignInFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -58,54 +48,79 @@ public class SignInFragment extends SupportFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_in, container, false);
-    }
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                                Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_sign_in, container, false);
+        ButterKnife.bind(this, v);
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+        mLoginButton.setOnClickListener((View v1) -> {
+            if (checkForm()){
+                /*RestClient.builder()
+                        .url("/signin")
+                        .params("username", username)
+                        .params("password", password)
+                        .success(response -> {
+                            Intent intent = new Intent(this, MainActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(this, response,Toast.LENGTH_LONG).show();
+                            this.finish();
+                        })
+                        .failure(response -> {
+                            response.printStackTrace();
+                            Toast.makeText(this, response.toString(),Toast.LENGTH_LONG).show();
+                        })
+                        .error((code, msg) -> {
+                            Toast.makeText(this, "用户名或密码输入错误",Toast.LENGTH_LONG).show();
+                        })
+                        .build()
+                        .post();*/
+
+                Toast.makeText(getContext(), "test",Toast.LENGTH_LONG).show();
+
+                SupportFragment fragment = findFragment(HomeFragment.class);
+                if (fragment == null) {
+                    replaceFragment(HomeFragment.newInstance(), false);
+                }else {
+                    popTo(HomeFragment.class, true);
+                }
+            }
+        });
+        mRegisterButton.setOnClickListener((View v1) -> start(SignUpFragment.newInstance()));
+
+        Toolbar toolbar = v.findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.login);
+        initToolbarNav(toolbar);
+
+        return v;
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+    public void onSupportInvisible() {
+        super.onSupportInvisible();
+        hideSoftInput();
+    }
+
+    private boolean checkForm() {
+        username = mName.getText().toString();
+        password = mPassword.getText().toString();
+
+        boolean isPass = true;
+        if (username.isEmpty()) {
+            mName.setError("请输用户名");
+            isPass = false;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            mName.setError(null);
         }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        if (password.isEmpty() || password.length() < 6) {
+            mPassword.setError("请输入至少六位数密码");
+            isPass = false;
+        } else {
+            mPassword.setError(null);
+        }
+        return isPass;
     }
 }

@@ -5,7 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -36,13 +38,15 @@ import me.yokeyword.fragmentation.SupportFragment;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends SupportFragment {
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class HomeFragment extends BaseMainFragment {
     private static final String ARG_USER = "user";
     private static final String ARG_PARAM2 = "param2";
 
     private String mParamUser;
     private String mParam2;
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @BindView(R.id.home_banner)
     BannerViewPager mBanner;
@@ -60,6 +64,8 @@ public class HomeFragment extends SupportFragment {
     private ArrayList<Integer> mImgRes = new ArrayList<>();
 
     private OnFragmentInteractionListener mListener;
+
+    private OnFragmentOpenDrawerListener mOpenDrawerListener;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -90,6 +96,10 @@ public class HomeFragment extends SupportFragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, v);
+
+        //only can open mainActivity navDrawer in homeFragment
+        mToolbar.setTitle(R.string.app_name);
+        initToolbarNav(mToolbar);
 
         initBanner();
         return v;
