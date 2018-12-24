@@ -26,7 +26,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="379dp"
-        android:layout_height="315dp"
+        android:layout_height="252dp"
         android:text="TextView"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -120,7 +120,7 @@ public class HomeFragment extends BaseMainFragment {
 
         switch (v.getId()) {
             case R.id.home_btn_listen:
-                home.start(ListenFragment.newInstence(), SupportFragment.SINGLETASK);
+                home.start(ListenFragments.newInstence(), SupportFragment.SINGLETASK);
                 break;
             case R.id.home_btn_read:
                 home.start(ReadingFragment.newInstance(), SupportFragment.SINGLETASK);
