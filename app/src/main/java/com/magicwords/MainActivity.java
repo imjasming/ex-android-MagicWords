@@ -33,14 +33,11 @@ public class MainActivity extends SupportActivity
     private static final long WAIT_TIME = 2000L;
     private long TOUCH_TIME = 0;
 
-    /*@BindView(R.id.toolbar)
-    Toolbar mToolbar;*/
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
     @BindView(R.id.nav_view)
     NavigationView mNavigationView;
 
-    //@BindView(R.id.nav_head_img)
     ImageView mHeadImg;
 
     @Override
@@ -58,7 +55,6 @@ public class MainActivity extends SupportActivity
     }
 
     private void initView() {
-        //setSupportActionBar(mToolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);

@@ -61,6 +61,11 @@ public class TeachingFragment extends BaseBackFragment {
         ButterKnife.bind(this, v);
         mediaController = new MediaController(v.getContext());
         get_package_name = v.getContext().getPackageName();
+
+        Toolbar toolbar = v.findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.say);
+        initToolbarNav(toolbar);
+
         return v;
     }
 
