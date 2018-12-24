@@ -15,6 +15,7 @@ public class MagicwordBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL("CREATE TABLE Magicworddb(" +
                 "wordid INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "word VARCHAR(20)," +
@@ -22,21 +23,12 @@ public class MagicwordBaseHelper extends SQLiteOpenHelper {
                 "mean VARCHAR(255)," +
                 "example VARCHAR(255))");
 
-       /* //db.execSQL("CREATE TABLE Magicworddb(" +
-                "wordid INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "word VARCHAR(20)," +
-                "yinbiao VARCHAR(255)," +
-                "mean VARCHAR(255)," +
-                "example VARCHAR(255))");*/
         db.execSQL(
                 "INSERT INTO Magicworddb(wordid,word,yinbiao,mean,example) values(?,?,?,?,?)",new Object[] { 1,
                         "A",
                         "[ə]",
                         "一,一个,一只,一件.",
-                        " I don't care what a car looks like as long as it gets me from A to B." +
-                                "我倒不在乎汽车的样子, 只要能把我从一处载到另一处就行了. " +
-                                "Would you do me a favor?    " +
-                                "你能帮我一个忙吗？"});
+                        " I don't care what a car looks like as long as it gets me from A to B.我倒不在乎汽车的样子, 只要能把我从一处载到另一处就行了./r/n\n Would you do me a favor?/r/n     你能帮我一个忙吗？/r/n"});
 
         db.execSQL(
                 "INSERT INTO Magicworddb(wordid,word,yinbiao,mean,example) values(?,?,?,?,?)",new Object[] { 2,
@@ -59,6 +51,7 @@ public class MagicwordBaseHelper extends SQLiteOpenHelper {
                 "INSERT INTO Magicworddb(wordid,word,yinbiao,mean,example) values(?,?,?,?,?)",new Object[] { 6,
                         "born", "[bɔːrn]", "a. 天生的<br>\nvbl. 出生", " The baby was born on 8 o'clock./r/n     婴儿在8点钟出生。/r/n\n I've never heard such nonsense in all my born days!/r/n     我一生中从未听到过这种胡言乱语。/r/n"});
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

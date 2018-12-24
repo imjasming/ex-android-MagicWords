@@ -44,8 +44,7 @@ public class ListenFragments extends BaseBackFragment {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.query("Magicworddb",null,null,null,null,null,null);
         cursor.moveToFirst();
-        content= cursor.getString(1)+("  ")+cursor.getString(2)+("  ")+cursor.getString(3)+("  ")+cursor.getString(4);
-
+        content= cursor.getString(1)+("\n")+cursor.getString(2)+("\n")+cursor.getString(3)+("\n")+cursor.getString(4);
 
         Textview1 = (TextView) v.findViewById(R.id.textView);
         Textview1.setText(content);
