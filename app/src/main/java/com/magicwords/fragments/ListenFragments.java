@@ -45,8 +45,7 @@ public class ListenFragments extends BaseBackFragment {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.query("Magicworddb",null,null,null,null,null,null);
         cursor.moveToFirst();
-        content= cursor.getString(1)+("\n")+cursor.getString(2)+("\n")+cursor.getString(3)+("\n")+cursor.getString(4);
-        cursor.close();
+        content= cursor.getString(1)+("  ")+cursor.getString(2)+("  ")+cursor.getString(3)+("  ")+cursor.getString(4);
 
 
         Textview1 = (TextView) v.findViewById(R.id.textView);
@@ -72,14 +71,23 @@ public class ListenFragments extends BaseBackFragment {
                 button2.setVisibility(View.GONE);
                 button3.setVisibility(View.VISIBLE);
                 button4.setVisibility(View.VISIBLE);
-
-
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //再来一句
+                int i=0;
+                if(i<cursor.getColumnCount() ) {
+                    //光标移动成功
+                    cursor.moveToNext();
+                    content= cursor.getString(1)+("  ")+cursor.getString(2)+("  ")+cursor.getString(3)+("  ")+cursor.getString(4);
+                    Textview1.setText(content);
+                    //把数据取出
+                }
+                i++;
+
+
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
