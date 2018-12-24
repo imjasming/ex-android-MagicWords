@@ -85,7 +85,7 @@ public class SignInFragment extends BaseBackFragment {
                 if (fragment == null) {
                     replaceFragment(HomeFragment.newInstance(), false);
                 }else {
-                    popTo(HomeFragment.class, true);
+                    popTo(HomeFragment.class, false);
                 }
             }
         });

@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--获取wifi网络状态的信息 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--允许读取手机状态 用于创建BmobInstallation-->
+    <!--允许读取手机状态-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
@@ -26,11 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.TeachingActivity"
-            android:label="@string/title_activity_teaching"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.ReadingActivity"></activity>
     </application>
 
 </manifest>
