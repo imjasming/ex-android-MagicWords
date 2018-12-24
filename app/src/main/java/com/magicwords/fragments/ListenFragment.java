@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 import com.magicwords.R;
 import com.magicwords.MainActivity;
+import com.magicwords.model.WordBean;
+import com.magicwords.model.WordsLab;
 
 import database.MagicwordDbSchema.MagicwordBaseHelper;
 
@@ -24,6 +27,8 @@ public class ListenFragment extends BaseBackFragment {
     private Button button2;
     private Button button3;
     private Button button4;
+
+    private int mInt = 0;
 
 
     public static ListenFragment newInstence() {
@@ -41,12 +46,21 @@ public class ListenFragment extends BaseBackFragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_listen, container, false);
 
-        MagicwordBaseHelper dbHelper = new MagicwordBaseHelper(getContext(), "Magicworddb", null, 1);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.query("Magicworddb", null, null, null, null, null, null);
-        cursor.moveToFirst();
-        content = cursor.getString(1) + ("  ") + cursor.getString(2) + ("  ") + cursor.getString(3) + ("  ") + cursor.getString(4);
+        WordsLab wordsLab = WordsLab.getInstance();
+        if (wordsLab.getLen() <= 0) {
+            MagicwordBaseHelper dbHelper = new MagicwordBaseHelper(getContext(), "Magicworddb", null, 1);
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            Cursor cursor = db.query("Magicworddb", null, null, null, null, null, null);
+            cursor.moveToFirst();
 
+            for (int i = 0; i < cursor.getColumnCount(); i++) {
+                wordsLab.add(new WordBean(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4)));
+
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+        content = wordsLab.get(mInt).toString();
 
         Textview1 = (TextView) v.findViewById(R.id.textView);
         Textview1.setText(content);
@@ -77,16 +91,16 @@ public class ListenFragment extends BaseBackFragment {
             @Override
             public void onClick(View v) {
                 //再来一句
-                int i = 0;
-                if (i < cursor.getColumnCount()) {
+                /*if (i < cursor.getColumnCount()) {
                     //光标移动成功
                     cursor.moveToNext();
                     content = cursor.getString(1) + ("  ") + cursor.getString(2) + ("  ") + cursor.getString(3) + ("  ") + cursor.getString(4);
                     Textview1.setText(content);
                     //把数据取出
-                }
-                i++;
+                }*/
 
+                content = wordsLab.get(++mInt).toString();
+                Textview1.setText(content);
 
             }
         });
@@ -97,6 +111,11 @@ public class ListenFragment extends BaseBackFragment {
                 //显示答案
             }
         });
+
+        Toolbar toolbar = v.findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.listen);
+        initToolbarNav(toolbar);
+
         return v;
     }
 
