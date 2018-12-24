@@ -25,7 +25,7 @@
             android:paddingVertical="2dp">
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/listen"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginEnd="300dp"
@@ -37,18 +37,54 @@
                 android:background="@drawable/ic_volume_up_black_24dp" />
         </LinearLayout>
 
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/listen_input"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginVertical="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:paddingHorizontal="96dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/listen_edt"
+                style="@style/Text_input_edit"
+                android:hint="单词："
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="TextView"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout0" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/red"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/listen_input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <LinearLayout
             android:id="@+id/linearLayout"

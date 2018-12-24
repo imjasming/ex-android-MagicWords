@@ -5,9 +5,10 @@ public class StenceBean {
     private String stence;
     private int id;
 
-    public StenceBean(String stence, String word) {
+    public StenceBean(int id,String stence, String word) {
         this.word = word;
-
+        this.stence=stence;
+        this.id=id;
     }
 
     public String getWord() {
@@ -36,6 +37,16 @@ public class StenceBean {
 
     @Override
     public String toString() {
-        return stence + '\n' + word ;
+        return stence +"\n"+ word ;
+    }
+
+    public String toString1(){
+        return stence;
+    }
+    public String toString2(){
+        return word;
+    }
+    public int toint(){
+        return id;
     }
 }

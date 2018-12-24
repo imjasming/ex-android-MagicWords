@@ -47,6 +47,6 @@ public class WordBean {
 
     @Override
     public String toString() {
-        return word + '\n' + symble + '\n' + mean + '\n' + sample;
+        return word + symble + mean + sample;
     }
 }
