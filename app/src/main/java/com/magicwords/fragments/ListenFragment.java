@@ -1,23 +1,16 @@
 package com.magicwords.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.magicwords.R;
-import com.magicwords.model.User;
 
-import me.yokeyword.fragmentation.SupportFragment;
-
-public class ListenFragments extends BaseBackFragment {
+public class ListenFragment extends BaseBackFragment {
     private TextView Textview1;
     private String content; //用以显示文本数据
     private Button button1;
@@ -25,8 +18,8 @@ public class ListenFragments extends BaseBackFragment {
     private Button button3;
     private Button button4;
 
-    public static ListenFragments newInstence() {
-        return new ListenFragments();
+    public static ListenFragment newInstence() {
+        return new ListenFragment();
     }
 
     @Override
