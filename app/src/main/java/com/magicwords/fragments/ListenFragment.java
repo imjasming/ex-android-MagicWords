@@ -11,13 +11,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.magicwords.R;
-import com.magicwords.activities.MainActivity;
+import com.magicwords.MainActivity;
 
 import database.MagicwordDbSchema.MagicwordBaseHelper;
 
 import static com.magicwords.db.DatabaseClient.WritableDatabaseHolder.Magicworddb;
 
-public class ListenFragments extends BaseBackFragment {
+public class ListenFragment extends BaseBackFragment {
     private TextView Textview1;
     private String content; //用以显示文本数据
     private Button button1;
@@ -26,8 +26,8 @@ public class ListenFragments extends BaseBackFragment {
     private Button button4;
 
 
-    public static ListenFragments newInstence() {
-        return new ListenFragments();
+    public static ListenFragment newInstence() {
+        return new ListenFragment();
     }
 
     @Override
@@ -41,11 +41,11 @@ public class ListenFragments extends BaseBackFragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_listen, container, false);
 
-        MagicwordBaseHelper dbHelper = new MagicwordBaseHelper(getContext(),"Magicworddb",null,1);
+        MagicwordBaseHelper dbHelper = new MagicwordBaseHelper(getContext(), "Magicworddb", null, 1);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.query("Magicworddb",null,null,null,null,null,null);
+        Cursor cursor = db.query("Magicworddb", null, null, null, null, null, null);
         cursor.moveToFirst();
-        content= cursor.getString(1)+("  ")+cursor.getString(2)+("  ")+cursor.getString(3)+("  ")+cursor.getString(4);
+        content = cursor.getString(1) + ("  ") + cursor.getString(2) + ("  ") + cursor.getString(3) + ("  ") + cursor.getString(4);
 
 
         Textview1 = (TextView) v.findViewById(R.id.textView);
@@ -77,11 +77,11 @@ public class ListenFragments extends BaseBackFragment {
             @Override
             public void onClick(View v) {
                 //再来一句
-                int i=0;
-                if(i<cursor.getColumnCount() ) {
+                int i = 0;
+                if (i < cursor.getColumnCount()) {
                     //光标移动成功
                     cursor.moveToNext();
-                    content= cursor.getString(1)+("  ")+cursor.getString(2)+("  ")+cursor.getString(3)+("  ")+cursor.getString(4);
+                    content = cursor.getString(1) + ("  ") + cursor.getString(2) + ("  ") + cursor.getString(3) + ("  ") + cursor.getString(4);
                     Textview1.setText(content);
                     //把数据取出
                 }
