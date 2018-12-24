@@ -15,12 +15,16 @@ import com.magicwords.R;
 public class ActivityWord3 extends BaseBackFragment {
     private TextView next3;
 
+    private static final String ARG_INDEX = "index";
+    private int mIndex;
+
     public ActivityWord3() {
     }
 
-    public static ActivityWord3 newInstance() {
+    public static ActivityWord3 newInstance(int i) {
         ActivityWord3 fragment = new ActivityWord3();
         Bundle args = new Bundle();
+        args.putInt(ARG_INDEX, i);
         fragment.setArguments(args);
         return fragment;
     }
@@ -29,6 +33,7 @@ public class ActivityWord3 extends BaseBackFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            mIndex = getArguments().getInt(ARG_INDEX);
         }
     }
 
@@ -41,7 +46,7 @@ public class ActivityWord3 extends BaseBackFragment {
         next3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment(ActivityWord1.newInstance(), false);
+                replaceFragment(ActivityWord1.newInstance(++mIndex), false);
             }
         });
 

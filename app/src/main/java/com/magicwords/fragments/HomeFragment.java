@@ -129,7 +129,7 @@ public class HomeFragment extends BaseMainFragment {
                 home.start(TeachingFragment.newInstance(), SupportFragment.SINGLETASK);
                 break;
             case R.id.home_btn_word:
-                home.start(ActivityWord1.newInstance(), SupportFragment.SINGLETASK);
+                home.start(ActivityWord1.newInstance(0), SupportFragment.SINGLETASK);
                 break;
         }
     }

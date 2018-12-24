@@ -15,13 +15,17 @@ import com.magicwords.R;
 public class ActivityWord2 extends BaseBackFragment implements View.OnClickListener {
     private TextView depth1;
     private TextView depth2;
-    private Intent intent;
+
+    private static final String ARG_INDEX = "index";
+
+    private int mIndex;
 
     public ActivityWord2(){}
 
-    public static ActivityWord2 newInstance(){
+    public static ActivityWord2 newInstance(int i){
         ActivityWord2 fragment = new ActivityWord2();
         Bundle args = new Bundle();
+        args.putInt(ARG_INDEX, i);
         fragment.setArguments(args);
         return fragment;
     }
@@ -30,6 +34,7 @@ public class ActivityWord2 extends BaseBackFragment implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            mIndex = getArguments().getInt(ARG_INDEX);
         }
     }
 
@@ -51,11 +56,11 @@ public class ActivityWord2 extends BaseBackFragment implements View.OnClickListe
         switch (view.getId()){
             case R.id.depth2_1:
                 Toast.makeText(getContext(), "点击depth1", Toast.LENGTH_SHORT).show();
-                replaceFragment(ActivityWord3.newInstance(), false);
+                replaceFragment(ActivityWord3.newInstance(mIndex), false);
                 break;
             case R.id.depth2_2:
                 Toast.makeText(getContext(), "点击depth2", Toast.LENGTH_SHORT).show();
-                replaceFragment(ActivityWord3.newInstance(), false);
+                replaceFragment(ActivityWord3.newInstance(mIndex), false);
                 break;
         }
     }

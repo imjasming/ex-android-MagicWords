@@ -49,4 +49,10 @@ public class WordBean {
     public String toString() {
         return word + symble + mean + sample;
     }
+    public String toString1() {
+        return word + symble + sample;
+    }
+    public String toString2() {
+        return word + symble ;
+    }
 }
