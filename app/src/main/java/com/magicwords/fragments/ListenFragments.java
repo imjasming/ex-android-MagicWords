@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.magicwords.R;
-import com.magicwords.activities.MainActivity;
 
 import database.MagicwordDbSchema.MagicwordBaseHelper;
 

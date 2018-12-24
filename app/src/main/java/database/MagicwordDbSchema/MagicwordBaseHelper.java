@@ -26,12 +26,23 @@ public class MagicwordBaseHelper extends SQLiteOpenHelper {
                 "mean VARCHAR(255)," +
                 "example VARCHAR(255))");
 
-       /* //db.execSQL("CREATE TABLE Magicworddb(" +
+        db.execSQL("CREATE TABLE Magicstencedb(" +
                 "wordid INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "word VARCHAR(20)," +
-                "yinbiao VARCHAR(255)," +
-                "mean VARCHAR(255)," +
-                "example VARCHAR(255))");*/
+                "stence VARCHAR(20)," +
+                "word VARCHAR(255))" );
+
+        db.execSQL("INSERT INTO Magicstencedb(wordid,stence,word) values(?,?,?)",new Object[] { 446,
+                "  So ______ is time that we can't afford to waste it. " ,"precious"});
+
+        db.execSQL("INSERT INTO Magicstencedb(wordid,stence,word) values(?,?,?)",new Object[] { 448,
+                "  When it comes to low-carbon economy, it's advantages far outweigh ______" ,"itsdisadvantages"});
+
+        db.execSQL("INSERT INTO Magicstencedb(wordid,stence,word) values(?,?,?)",new Object[] { 456,
+                "  According to a recent survey, four million people die each year from ______ to smoking." ,"diseaseslinked"});
+
+        db.execSQL("INSERT INTO Magicstencedb(wordid,stence,word) values(?,?,?)",new Object[] { 460,
+                "   I would like to meet you there and please let me know your ______." ,"decision"});
+
         db.execSQL(
                 "INSERT INTO Magicworddb(wordid,word,yinbiao,mean,example) values(?,?,?,?,?)",new Object[] { 1,
                         "A",
@@ -47,21 +58,21 @@ public class MagicwordBaseHelper extends SQLiteOpenHelper {
                         "abdominal",
                         "[æb'dɑːmɪnl]",
                         "a. 腹部的",
-                        " I'll have an abdominal operation tomorrow./r/n     我明天要做个腹部手术。/r/n\n She had abdominal pains yesterday./r/n     她昨天腹痛。/r/n"});
+                        " I'll have an abdominal operation tomorrow.     我明天要做个腹部手术。 She had abdominal pains yesterday.     她昨天腹痛。"});
         db.execSQL(
                 "INSERT INTO Magicworddb(wordid,word,yinbiao,mean,example) values(?,?,?,?,?)",new Object[] { 3,
-                        "across", "[ə'krɔːs]", "ad. 横过<br>\nprep. 穿过,横过", " The two lines cut across each other./r/n     两条线相交。/r/n\n Can you swim across the river?/r/n     你能游到河的对岸吗？/r/n"});
+                        "across", "[ə'krɔːs]", "ad. 横过<br>  prep. 穿过,横过", " The two lines cut across each other.     两条线相交。 Can you swim across the river?    你能游到河的对岸吗？"});
         db.execSQL(
                 "INSERT INTO Magicworddb(wordid,word,yinbiao,mean,example) values(?,?,?,?,?)",new Object[] { 4,
-                        "bored", "[bɔːrd]", "a. 厌烦的,无聊的", " He is a bored student./r/n     他是一位感到厌烦的学生。/r/n\n The condition of being bored; ennui./r/n     厌烦处于厌烦的状态；无聊/r/n"});
+                        "bored", "[bɔːrd]", "a. 厌烦的,无聊的", " He is a bored student.     他是一位感到厌烦的学生。 The condition of being bored; ennui.     厌烦处于厌烦的状态；无聊"});
 
         db.execSQL(
                 "INSERT INTO Magicworddb(wordid,word,yinbiao,mean,example) values(?,?,?,?,?)",new Object[] { 5,
-                        "boring", "['bɔːrɪŋ]", "a. 令人厌烦的<br>\nn. 钻孔", " It is boring to listen to the same story./r/n     听相同的故事是令人厌烦的。/r/n\n This is one of the few gratifications of an otherwise boring job./r/n     这是枯燥的工作中少有的一项乐趣。/r/n"});
+                        "boring", "['bɔːrɪŋ]", "a. 令人厌烦的<br>\nn. 钻孔", " It is boring to listen to the same story.     听相同的故事是令人厌烦的。 This is one of the few gratifications of an otherwise boring job.     这是枯燥的工作中少有的一项乐趣。/r/n"});
 
         db.execSQL(
                 "INSERT INTO Magicworddb(wordid,word,yinbiao,mean,example) values(?,?,?,?,?)",new Object[] { 6,
-                        "born", "[bɔːrn]", "a. 天生的<br>\nvbl. 出生", " The baby was born on 8 o'clock./r/n     婴儿在8点钟出生。/r/n\n I've never heard such nonsense in all my born days!/r/n     我一生中从未听到过这种胡言乱语。/r/n"});
+                        "born", "[bɔːrn]", "a. 天生的<br> vbl. 出生", " The baby was born on 8 o'clock.     婴儿在8点钟出生。 I've never heard such nonsense in all my born days!     我一生中从未听到过这种胡言乱语。"});
     }
 
     @Override
