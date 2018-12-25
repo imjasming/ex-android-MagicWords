@@ -132,11 +132,6 @@ public class HomeFragment extends BaseMainFragment {
             case R.id.home_btn_word:
                 home.start(ActivityWord1.newInstance(0), SupportFragment.SINGLETASK);
                 break;
-            case R.id.home_btn_say:
-                home.start(TeachingFragment.newInstance(),SupportFragment.SINGLETASK);
-                break;
-            case R.id.home_btn_read:
-                home.start(ReadingFragment.newInstance(),SupportFragment.SINGLETASK);
         }
     }
 
