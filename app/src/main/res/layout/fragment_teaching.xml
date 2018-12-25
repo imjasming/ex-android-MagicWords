@@ -1,33 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.TeachingFragment"
-    android:background="@color/lightyellow">
+    android:background="@color/colorBackground">
+
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar_layout"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <LinearLayout
-            android:id="@+id/say_1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/lightyellow">
-
-            <Button
-                android:id="@+id/sliding"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:background="@mipmap/sliding" />
-
-            <Button
-                android:id="@+id/user"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="280dp"
-                android:background="@mipmap/user" />
-        </LinearLayout>
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_layout">
 
         <LinearLayout
             android:id="@+id/say_2"
@@ -37,11 +26,7 @@
             <VideoView
                 android:id="@+id/video_movie"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp" />
+                android:layout_height="300dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -53,31 +38,31 @@
 
             <Button
                 android:id="@+id/btn_movie_1"
+                style="@style/ButtonSecond"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="48dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/shape_button_1"
                 android:text="视频1"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btn_movie_2"
+                style="@style/ButtonSecond"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="48dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/shape_button_1"
                 android:text="视频2"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btn_movie_3"
+                style="@style/ButtonSecond"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/shape_button_1"
+                android:layout_height="48dp"
                 android:text="视频3"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
 
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>

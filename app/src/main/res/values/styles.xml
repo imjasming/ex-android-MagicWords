@@ -52,14 +52,28 @@
         <!--<item name="tools:ignore">HardcodedText</item>-->
     </style>
 
-    <style name="ButtonNormal">
+    <style name="ButtonRound">
         <item name="android:textColor">@color/colorBackground</item>
-        <item name="android:background">@drawable/shape_button_round</item>
+        <item name="android:background">@drawable/shape_btn_round</item>
+    </style>
+
+    <style name="ButtonSecond">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:textColor">@color/colorBackground</item>
+        <item name="android:background">@drawable/shape_btn_second</item>
+    </style>
+
+    <style name="BtnHome">
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:textColor">@color/colorBackground</item>
+        <item name="android:background">@drawable/shape_btn_home</item>
     </style>
 
     <style name="ButtonNegative">
         <item name="android:textColor">@color/gray_cc</item>
-        <item name="android:background">@drawable/shape_button_round</item>
+        <item name="android:background">@drawable/shape_btn_round</item>
     </style>
 
 </resources>

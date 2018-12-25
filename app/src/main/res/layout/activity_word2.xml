@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/home_toolbar"
+        layout="@layout/toolbar"/>
+
+    <TextView
+        android:id="@+id/word2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text=""
+        android:textAlignment="viewStart"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+
+        <TextView
+            android:id="@+id/phonetic2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/listen2"
+            android:src="@drawable/ic_volume_up_black_24dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/sentence2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3" />
+
+    <TextView
+        android:id="@+id/depth2_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.75"
+        android:gravity="center"
+        android:text="Come to mind！"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/depth2_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.75"
+        android:gravity="center"
+        android:text="Not at all！"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

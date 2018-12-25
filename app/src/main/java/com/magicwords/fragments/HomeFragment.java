@@ -1,11 +1,11 @@
 package com.magicwords.fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresPermission;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.magicwords.R;
-import com.magicwords.model.User;
 import com.zhengsr.viewpagerlib.callback.PageHelperListener;
 import com.zhengsr.viewpagerlib.indicator.ZoomIndicator;
-import com.zhengsr.viewpagerlib.view.ArcImageView;
 import com.zhengsr.viewpagerlib.view.BannerViewPager;
 import com.zhengsr.viewpagerlib.bean.PageBean;
 
@@ -30,20 +28,22 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * a simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * {@link HomeFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends SupportFragment {
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class HomeFragment extends BaseMainFragment {
     private static final String ARG_USER = "user";
     private static final String ARG_PARAM2 = "param2";
 
     private String mParamUser;
     private String mParam2;
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @BindView(R.id.home_banner)
     BannerViewPager mBanner;
@@ -62,12 +62,14 @@ public class HomeFragment extends SupportFragment {
 
     private OnFragmentInteractionListener mListener;
 
+    private OnFragmentOpenDrawerListener mOpenDrawerListener;
+
     public HomeFragment() {
         // Required empty public constructor
     }
 
     /**
-     * @return A new instance of fragment HomeFragment.
+     * @return a new instance of fragment HomeFragment.
      */
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
@@ -92,6 +94,10 @@ public class HomeFragment extends SupportFragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, v);
 
+        //only can open mainActivity navDrawer in homeFragment
+        mToolbar.setTitle(R.string.app_name);
+        initToolbarNav(mToolbar);
+
         initBanner();
         return v;
     }
@@ -115,7 +121,16 @@ public class HomeFragment extends SupportFragment {
 
         switch (v.getId()) {
             case R.id.home_btn_listen:
-                home.start(ListenFragments.newInstence(), SupportFragment.SINGLETASK);
+                home.start(ListenFragment.newInstence(), SupportFragment.SINGLETASK);
+                break;
+            case R.id.home_btn_read:
+                home.start(ReadingFragment.newInstance(), SupportFragment.SINGLETASK);
+                break;
+            case R.id.home_btn_say:
+                home.start(TeachingFragment.newInstance(), SupportFragment.SINGLETASK);
+                break;
+            case R.id.home_btn_word:
+                home.start(ActivityWord1.newInstance(0), SupportFragment.SINGLETASK);
                 break;
             case R.id.home_btn_say:
                 home.start(TeachingFragment.newInstance(),SupportFragment.SINGLETASK);

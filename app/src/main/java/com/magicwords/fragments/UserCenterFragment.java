@@ -34,7 +34,7 @@ public class UserCenterFragment extends BaseBackFragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment UserCenterFragment.
+     * @return a new instance of fragment UserCenterFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static UserCenterFragment newInstance() {
