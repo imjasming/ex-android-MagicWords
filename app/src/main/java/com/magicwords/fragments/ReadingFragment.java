@@ -31,7 +31,7 @@ public class ReadingFragment extends BaseBackFragment {
     @BindView(R.id.btn_translation_next)
     Button next_translate;
     int mInt=0;
-    String content1;
+    String content1="";
     private boolean is_next;
     StenceLab wordsLab = StenceLab.getInstance();
 
@@ -74,17 +74,19 @@ public class ReadingFragment extends BaseBackFragment {
             Cursor cursor = db.query("Magicreaddb", null, null, null, null, null, null);
             cursor.moveToFirst();
 
-            for (int i = 0; i < cursor.getColumnCount(); i++) {
-                wordsLab.add(new StenceBean(cursor.getInt(0), cursor.getString(1),cursor.getString(2)));
+            for (int i = 0; i < 2; i++) {
+                wordsLab.add(new StenceBean(cursor.getInt(0), cursor.getString(1),cursor.getString(2),cursor.getString(3)));
                 cursor.moveToNext();
             }
             cursor.close();
         }
+        content1=wordsLab.get(mInt).gettitle();
+        title.setText(content1);
 
 
-
-        content1=wordsLab.get(mInt).toString1();
+        content1=wordsLab.get(mInt).getStence();
         content.setText(content1);
+
 
 
         return v;

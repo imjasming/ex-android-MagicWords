@@ -4,11 +4,13 @@ public class StenceBean {
     private String word;
     private String stence;
     private int id;
+    private String title;
 
-    public StenceBean(int id,String stence, String word) {
+    public StenceBean(int id,String title,String stence, String word) {
         this.word = word;
         this.stence=stence;
         this.id=id;
+        this.title=title;
     }
 
     public String getWord() {
@@ -19,6 +21,8 @@ public class StenceBean {
         this.word = word;
     }
 
+    public void settitle(){this.title=title;}
+    public String gettitle(){return title;}
     public int getid() {
         return id;
     }
@@ -48,5 +52,8 @@ public class StenceBean {
     }
     public int toint(){
         return id;
+    }
+    public String totitle(){
+        return title;
     }
 }
