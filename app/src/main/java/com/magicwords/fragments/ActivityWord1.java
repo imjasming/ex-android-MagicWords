@@ -92,9 +92,6 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
         content = wordsLab.get(mInt).toword();
         word1.setText(content);
         switch (content){
-            case "A":
-                mediaPlayer = MediaPlayer.create(getContext(),R.raw.a);
-                break;
             case "abdominal":
                 mediaPlayer = MediaPlayer.create(getContext(),R.raw.abdominal);
                 break;
@@ -111,6 +108,7 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
                 mediaPlayer = MediaPlayer.create(getContext(),R.raw.born);
                 break;
             default:
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.a);
                 break;
         }
         
@@ -148,7 +146,7 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
                         mediaPlayer.start();
 //                        Toast.makeText(getContext(), "播放", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getContext(), "资源加载错误", Toast.LENGTH_SHORT).show();
+                        mediaPlayer.seekTo(0);
                     }
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "play false", Toast.LENGTH_SHORT).show();
