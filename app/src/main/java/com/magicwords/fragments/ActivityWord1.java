@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +69,10 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
             e.printStackTrace();
         }
 //        mediaPlayer = MediaPlayer.create(ActivityWord1.this,Uri.parse("http://192.168.78.1:8080/ad/accelerate.mp3"));
+
+        Toolbar toolbar = v.findViewById(R.id.toolbar);
+        toolbar.setTitle("单词");
+        initToolbarNav(toolbar);
 
         return v;
     }

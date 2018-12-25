@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--相当于 ripple 和 selector 的叠加-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="@color/colorPrimary"
+    tools:targetApi="lollipop">
+
+    <item>
+        <selector>
+            <item
+                android:id="@android:id/mask"
+                android:drawable="@color/colorPrimary"
+                android:state_pressed="true" />
+
+            <item android:drawable="@drawable/shape_border" />
+        </selector>
+    </item>
+</ripple>
