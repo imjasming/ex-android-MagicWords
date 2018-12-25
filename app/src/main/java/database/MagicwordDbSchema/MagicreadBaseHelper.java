@@ -17,8 +17,9 @@ public class MagicreadBaseHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE Magicreaddb(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "sentence VARCHAR(255)," +
-                "word VARCHAR(255))");
+                "title VARCHAR(255),"+
+                "sentence VARCHAR(4196)," +
+                "word VARCHAR(4196))");
 
        /* //db.execSQL("CREATE TABLE Magicworddb(" +
                 "wordid INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -27,20 +28,26 @@ public class MagicreadBaseHelper extends SQLiteOpenHelper{
                 "mean VARCHAR(255)," +
                 "example VARCHAR(255))");*/
         db.execSQL(
-                "INSERT INTO Magicreaddb(id,sentence,word) values(?,?,?)",new Object[] { 446,
-                        "In the past, it was unimaginable for most Chinese people to travel by air. Nowadays, with the economic development and the improvement of living standard, an increasing number of Chinese including many farmers and migrant workers can take plane to travel. They can fly to all big cities. Besides, many cities are preparing to build airports. The air service is constantly improved and the special air-tickets are often offered. In recent years, the number of people choosing to travel by air has constantly increased during holidays.",
-                        "过去，乘飞机出行对大多数中国人来说是难以想象的。如今随着经济的发展和生活水平的提高，越来越多的中国人包括许多农民和外出务工人员都能乘飞机出行。他们可以乘飞机到达所有大城市，还有许多城市也在筹建机场。航空服务不断改进，而且经常会有特价机票。近年来，节假日期间选择乘飞机外出旅游的人不断增加。"});
+                "INSERT INTO Magicreaddb(id,title,sentence,word) values(?,?,?,?)",new Object[] { 446,"For the Love of Chocolate",
+                        "  Most people know that chocolate is made from cocoa and that the origins of chocolate can be traced back to Central and South America. For centuries, the natives there regarded cocoa as a gift from the gods. But how did chocolate go from being the food of the gods to being the food of love?\n" +
+                                "  Around A.D. 600, the Mayas were the main aboriginal group in Central America. They established the first cocoa plantations and used the cocoa bean as the main ingredient in a dark, bitter drink that we would call “chocolate.” The Mayas believed that chocolate had mystical properties---but cocoa also had commercial value. In fact, cocoa beans were used as a form of currency that was worth its weight in gold!\n" +
+                                "  Spanish conquistador Hernando Cortez was the first European explorer to realize cocoa's commercial possibilities. When he arrived in the New World in 1519, he soon established his own cocoa plantation. In 1529, Cortez returned to Spain and introduced chocolate---as a drink mixed with sugar, vanilla, and cinnamon---to European society.\n" +
+                                "  It caught on---especially with the nobility, who fancied hot chocolate as an aphrodisiac. As its popularity spread, people found new ways to make and use chocolate. These days, chocolate is enjoyed as both a tasty treat and a romantic indulgence. Whether it is in delectable desserts or crunchy candy, people the world over are still in love with chocolate.",
+                               "浓情巧克力\n" +
+                                       "  大多数人都知道巧克力由可可制成，它起源于中南美洲。几个世纪以来，当地的居民把可可看作神的恩赐。但巧克力是怎样从神的食品变成了爱情食品的呢？\n" +
+                                       "  公元600年左右，玛雅人是中美洲主要的土著居民。他们建立了第一座可可种植园，并用可可豆为主要原料，制成了一种又黑又苦的饮料，我们叫“巧克力”。玛雅人相信巧克力具有神秘的特性，也具有商业价值。实际上，可可豆曾经被当作一种与金子等值的货币形式！\n" +
+                                       "  西班牙征服者赫尔南多•科蒂斯是第一位了解可可的商业潜力的欧洲探险家。他1519年抵达新大陆，不久就建立了自己的可可种植园。1529年，赫尔南多•科蒂斯回到西班牙，他将巧克力——一种混合糖、香草及肉桂的饮料引入欧洲社会。\n" +
+                                       " 巧克力倍受贵族们的亲睐，他们视热巧克力为一种春药。随着巧克力广为普及，人们发现了一些制造和使用巧克力的新方法。现在，巧克力被人们当作一种可口的美食和浪漫的享受。无论是在美味的甜点里，还是在酥脆的糖果中，世界各地的人们依旧对巧克力迷恋不已。"});
 
         db.execSQL(
-                "INSERT INTO Magicreaddb(id,sentence,word) values(?,?,?)",new Object[] { 448,
-                        "In recent years, more and more cities in China begin to build subways. Developing the subway is good for reducing the traffic jam and air pollution in cities. a growing number of people choose subway as their main means of transportation to go to work or school every day for its advantages of safety, fast speed and comfort. Nowadays, taking the subway is becoming more and more convenient in China. In some cities, passengers can use a card or a mobile phone to take the subway. Many elderly local citizens can also take the subway for free.",
-                        "近年来，中国有越来越多的城市开始建造地铁。发展地铁有助于减少城市的交通拥挤和空气污染。地铁具有安全、快捷和舒适的优点，越来越多的人选择地铁作为每天上班或上学的主要交通工具。如今，在中国乘坐地铁正变得越来越方便。在有些城市里，乘客只需用卡或手机就可以乘坐地铁。许多当地老年市民还可以免费乘坐地铁。"});
-        db.execSQL(
-                "INSERT INTO Magicreaddb(id,sentence,word) values(?,?,?)",new Object[] { 460,
-                        "Due to the rapid development of communication networks， the number of Chinese smartphone users has grown at an alarming rate in recent years。 This has dramatically changed the ways of reading for many people.They now often read news and articles on their smartphones instead of buying traditional newspapers。 The development of a large number of mobile apps enables people to read novels and other forms of literature works on their mobile phones。 Therefore， the sale of paper books has been affected。 But the survey shows that despite the steady growth of the mobile phone reading market， more than half of adults still like to read paper books。",
-                        "由于通信网络的快速发展，中国智能手机用户数量近年来以惊人度增长。这极大地改变了许多人的阅读方式。他们现在经常智能手机上看新闻和文章，而不买传统报刊。大量移动应用程序的开发使人们能用手机读小说和其他形式的文学作品。因此，纸质书籍的销售受到了影响。但调查显示，尽管能手机阅读市场稳步增长，超半数成年人仍喜欢读纸质书。"});
-
-
+                "INSERT INTO Magicreaddb(id,title,sentence,word) values(?,?,?,?)",new Object[] { 448,"Active Play or Passive Entertainment?",
+                        "Our diurnal existence is divided into two phases, as distinct as day and night. We call them work and play. We work so many hours a day. And, when we have allowed the necessary minimum for such activities as eating and shopping, the rest we spend in various activities which are known as recreations, an elegant word which disguises the fact that we usually do not even play in our hours of leisure, but spend them in various forms of passive enjoyment or entertainment―not playing football but watching football matches；not acting but theatre-going；Not walking but riding in a motor coach.\n" +
+                                "  We need to make, therefore, a hard-and-fast distinction not only between work and play but equally between active play and passive entertainment. It is, I suppose, the decline of active play―of amateur sport―and the enormous growth of purely receptive entertainment which has given rise to a sociological interest in the problem. If the greater part of the population, instead of indulging in sport, spend their hours of leisure viewing television programmers, there will inevitably be a decline in health and physique.\n" +
+                                "  We have to live art if we would be affected by art. We have to paint rather than look at paintings, to play instruments rather than go to concerts, to dance and sing and act ourselves, engaging all our senses in the ritual and discipline of the arts. Then something may begin to happen to us：to work upon our bodies and soul.",
+                        "主动的玩乐还是被动的消遣?\n" +
+                                "  人们的每天的生存状态可以一分为二，像白天和黑夜那样清晰可辨。我们将之称为工作和娱乐。每天，我们在工作上花费许多小时，再把花在诸如吃饭、购物等必不可少、无法再减的活动的时间扣除，我们把花在其他活动的剩余时间归在娱乐范围。娱乐这个词相当雅致。但掩饰了这样一个事实：即使在休闲的时光中，我们通常并没有玩乐，而是在进行各种各样被动的享乐或娱乐中——不是踢足球而只是看足球比赛，不是登台演出而是看人演戏，不是散步行走而是搭乘汽车。\n" +
+                                "  因此，我们需要不仅对工作和娱乐做出严格的区别，而且要同样严格地区分主动的玩乐和被动的消遣。在我看来，正是由于主动的玩乐——业余体育运动衰退和纯粹接受性消遣的疯狂膨胀，导致了社会学家对这一问题的关注。假如人口的大多数不是参加体育活动，而是把闲暇时光花在“看”电视节目上，人们的健康和体质都会不可避免地下降。\n" +
+                                "  如果我们希望受到艺术的熏陶，我们就应该当艺术的生活。不是去欣赏油画，我们自己应当去作画；不是去听音乐会，我们自己应当去演奏乐器，去跳舞，去唱歌，去演戏，让我们的感官受各个艺术门类的规矩和训练。随后，某种变化就会出现，对我们的身心都会发生影响。"});
 
 
     }
