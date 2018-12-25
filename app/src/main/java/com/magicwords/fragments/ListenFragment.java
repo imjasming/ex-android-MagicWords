@@ -107,16 +107,16 @@ public class ListenFragment extends BaseBackFragment {
 
         switch (wordsLab.get(mInt).toint()){
             case 446:
-                mediaPlayer = MediaPlayer.create(getContext(),R.raw.a);
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.one);
                 break;
             case 448:
-                mediaPlayer = MediaPlayer.create(getContext(),R.raw.abdominal);
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.two);
                 break;
             case 460:
-                mediaPlayer = MediaPlayer.create(getContext(),R.raw.across);
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.three);
                 break;
             case 456:
-                mediaPlayer = MediaPlayer.create(getContext(),R.raw.bored);
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.four);
                 break;
             default:
                 break;
@@ -141,7 +141,14 @@ public class ListenFragment extends BaseBackFragment {
                 wordsLab.get(mInt).toint();
                 try {
                     if (mediaPlayer != null) {
-                        mediaPlayer.start();
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.seekTo(0);
+//                            mediaPlayer.stop();
+//                            mediaPlayer.reset();
+                        }else {
+                            mediaPlayer.start();
+                        }
+
 //                    Toast.makeText(getContext(), "播放", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "资源加载错误", Toast.LENGTH_SHORT).show();
@@ -157,7 +164,22 @@ public class ListenFragment extends BaseBackFragment {
             @Override
             public void onClick(View v) {
                 //重放听力
-
+                try {
+                    if (mediaPlayer != null) {
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.seekTo(0);
+//                            mediaPlayer.stop();
+//                            mediaPlayer.reset();
+                        }else {
+                            mediaPlayer.start();
+                        }
+//                    Toast.makeText(getContext(), "播放", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "资源加载错误", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "play false", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -188,6 +210,9 @@ public class ListenFragment extends BaseBackFragment {
                     Textview1.setText(content);
                     //把数据取出
                 }*/
+                if (mediaPlayer.isPlaying()){
+                    mediaPlayer.stop();
+                }
 
                 button1.setVisibility(View.VISIBLE);
                 button2.setVisibility(View.VISIBLE);
@@ -202,16 +227,16 @@ public class ListenFragment extends BaseBackFragment {
 
                 switch (wordsLab.get(mInt).toint()){
                     case 446:
-                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.a);
+                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.one);
                         break;
                     case 448:
-                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.abdominal);
+                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.two);
                         break;
                     case 460:
-                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.across);
+                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.three);
                         break;
                     case 456:
-                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.bored);
+                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.four);
                         break;
                     default:
                         break;
@@ -250,6 +275,8 @@ public class ListenFragment extends BaseBackFragment {
 
     @Override
     public boolean onBackPressedSupport() {
+        mediaPlayer.release();
         return super.onBackPressedSupport();
+
     }
 }

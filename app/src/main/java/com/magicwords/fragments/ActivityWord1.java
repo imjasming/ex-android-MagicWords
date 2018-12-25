@@ -160,6 +160,7 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
 
     @Override
     public boolean onBackPressedSupport() {
+
         return super.onBackPressedSupport();
     }
 }

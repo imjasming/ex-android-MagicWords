@@ -145,6 +145,7 @@ public class ActivityWord3 extends BaseBackFragment {
 
     @Override
     public boolean onBackPressedSupport() {
+
         return super.onBackPressedSupport();
     }
 }
