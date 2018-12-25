@@ -51,8 +51,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.75"
+        android:background="@drawable/shape_border_yyl"
         android:gravity="center"
-        android:text="Come to mind！"
+        android:text="想起来了"
         android:textAlignment="center"
         android:textSize="25sp"
         android:textStyle="bold" />
@@ -62,8 +63,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.75"
+        android:background="@drawable/shape_border_yyl"
         android:gravity="center"
-        android:text="Not at all！"
+        android:text="不认识"
         android:textAlignment="center"
         android:textSize="25sp"
         android:textStyle="bold" />
