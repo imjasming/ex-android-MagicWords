@@ -20,7 +20,7 @@
         android:background="@color/colorTextView"
         android:text="passage_title"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -30,12 +30,13 @@
         <TextView
             android:id="@+id/passage_content"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="320dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/colorTextView" />
+            android:background="@color/colorTextView"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -50,7 +51,7 @@
             style="@style/ButtonSecond"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="翻译/下一篇"
+            android:text="translate it"
             android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

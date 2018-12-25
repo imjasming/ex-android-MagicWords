@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:text="222222"
+        android:text=""
         android:gravity="center_vertical"
         android:textSize="30sp"
         android:textStyle="bold" />

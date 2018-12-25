@@ -130,6 +130,9 @@ public class ListenFragment extends BaseBackFragment {
                 layout.setVisibility(View.VISIBLE);
                 content = wordsLab.get(mInt).toString1();
                 Textview1.setText(content);
+                content="";
+                Textview3.setText(content);
+                Textview3.setVisibility(View.VISIBLE);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +164,7 @@ public class ListenFragment extends BaseBackFragment {
                 button4.setVisibility(View.GONE);
                 //显示答案
                 content=wordsLab.get(mInt).toString2();
+                Textview3.setVisibility(View.VISIBLE);
                 Textview3.setText(content);
                 content="";
             }

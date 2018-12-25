@@ -55,4 +55,8 @@ public class WordBean {
     public String toString2() {
         return word + symble ;
     }
+    public String toword(){return  word;}
+    public String toyinbiao(){return  symble;}
+    public String tolizi(){return  sample;}
+    public String toshili(){return  mean;}
 }

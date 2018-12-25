@@ -64,6 +64,15 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
         View v = inflater.inflate(R.layout.activity_word1, container, false);
         yinbiao=(TextView) v.findViewById(R.id.phonetic1);
         lizi=(TextView) v.findViewById(R.id.sentence1);
+        listen1 = (ImageView) v.findViewById(R.id.listen1);
+        listen1.setOnClickListener(this);
+        depth1 = (TextView) v.findViewById(R.id.depth1_1);
+        depth1.setOnClickListener(this);
+        depth2 = (TextView) v.findViewById(R.id.depth1_2);
+        depth2.setOnClickListener(this);
+        depth3 = (TextView) v.findViewById(R.id.depth1_3);
+        depth3.setOnClickListener(this);
+        word1 = (TextView) v.findViewById(R.id.word1);
 
         WordsLab wordsLab = WordsLab.getInstance();
         if (wordsLab.getLen() <= 0) {
@@ -79,21 +88,10 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
             }
             cursor.close();
         }
-        content = wordsLab.get(mInt).toString();
-
-
-
-        listen1 = (ImageView) v.findViewById(R.id.listen1);
-        listen1.setOnClickListener(this);
-        depth1 = (TextView) v.findViewById(R.id.depth1_1);
-        depth1.setOnClickListener(this);
-        depth2 = (TextView) v.findViewById(R.id.depth1_2);
-        depth2.setOnClickListener(this);
-        depth3 = (TextView) v.findViewById(R.id.depth1_3);
-        depth3.setOnClickListener(this);
-
-        word1 = (TextView) v.findViewById(R.id.word1);
-        content = word1.getText().toString();
+        content = wordsLab.get(mInt).toword();
+        word1.setText(content);
+        content= wordsLab.get(mInt).toyinbiao();
+        yinbiao.setText(content);
         mediaPlayer = new MediaPlayer();
         try {
             mediaPlayer.setDataSource("http://192.168.78.1:8080/ad/accelerate.mp3");
@@ -110,16 +108,17 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.depth1_1:
-                Toast.makeText(getContext(), "点击depth1", Toast.LENGTH_SHORT).show();
-                replaceFragment(ActivityWord2.newInstance(mInt), false);
+                Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
+                mInt++;
+                replaceFragment(ActivityWord1.newInstance(mInt), false);
                 break;
             case R.id.depth1_2:
-                Toast.makeText(getContext(), "点击depth2", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
                 replaceFragment(ActivityWord2.newInstance(mInt), false);
                 break;
             case R.id.depth1_3:
-                Toast.makeText(getContext(), "点击depth3", Toast.LENGTH_SHORT).show();
-                replaceFragment(ActivityWord2.newInstance(mInt), false);
+                Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
+                replaceFragment(ActivityWord3.newInstance(mInt), false);
                 break;
             case R.id.listen1:
                 Toast.makeText(getContext(), "listening", Toast.LENGTH_SHORT).show();
