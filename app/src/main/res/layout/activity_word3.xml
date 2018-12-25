@@ -13,16 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text=""
+        android:text="hello"
+        android:background="@drawable/shape_border_90du"
         android:textAlignment="viewStart"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <LinearLayout
+        android:background="@drawable/shape_border_90du"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+
         >
 
         <TextView
@@ -30,9 +32,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="9"
-            android:text="" />
+            android:text="/yinbiao/"
+            android:textSize="20sp"
+            />
 
         <ImageView
+            android:background="@drawable/shape_border"
             android:id="@+id/listen3"
             android:src="@drawable/ic_volume_up_black_24dp"
             android:layout_weight="1"
@@ -44,7 +49,10 @@
         android:id="@+id/sentence3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="5" />
+        android:layout_weight="5"
+        android:background="@drawable/shape_border_90du"
+        android:text="hello worlda"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/mean"
