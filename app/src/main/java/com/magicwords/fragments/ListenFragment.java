@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.magicwords.R;
 import com.magicwords.MainActivity;
+import com.magicwords.model.Stence1Bean;
+import com.magicwords.model.Stence1Lab;
 import com.magicwords.model.StenceBean;
 import com.magicwords.model.StenceLab;
 import com.magicwords.model.WordBean;
@@ -40,7 +42,7 @@ public class ListenFragment extends BaseBackFragment {
     private TextInputLayout layout;
     private ImageButton listen;
     private MediaPlayer mediaPlayer;
-
+    Stence1Lab wordsLab = Stence1Lab.getInstance();
     private int mInt = 0;
 
 
@@ -77,7 +79,6 @@ public class ListenFragment extends BaseBackFragment {
         }
         content = wordsLab.get(mInt).toString();*/
 
-        StenceLab wordsLab = StenceLab.getInstance();
         if (wordsLab.getLen() <= 0) {
             MagicstenceBaseHelper dbHelper = new MagicstenceBaseHelper(getContext(), "Magicworddb1", null, 1);
             SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -85,7 +86,7 @@ public class ListenFragment extends BaseBackFragment {
             cursor.moveToFirst();
             //db.execSQL("update Magicsentencedb set ");
             for (int i = 0; i <=cursor.getColumnCount(); i++) {
-                wordsLab.add(new StenceBean(cursor.getInt(0), cursor.getString(1),cursor.getString(2)));
+                wordsLab.add(new Stence1Bean(cursor.getInt(0), cursor.getString(1),cursor.getString(2)));
                 cursor.moveToNext();
             }
             int m=wordsLab.getLen();

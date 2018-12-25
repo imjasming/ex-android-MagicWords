@@ -34,7 +34,7 @@ public class MagicstenceBaseHelper extends SQLiteOpenHelper{
         db.execSQL(
                 "INSERT INTO Magicsentencedb(id,sentence,word) values(?,?,?)",new Object[] { 448,
                         "When it comes to low-carbon economy, it's advantages far outweigh ________________.",
-                        "itsdisadvantages"});
+                        "its disadvantages"});
         db.execSQL(
                 "INSERT INTO Magicsentencedb(id,sentence,word) values(?,?,?)",new Object[] { 460,
                         "I would like to meet you there and please let me know your ________.",
@@ -42,7 +42,7 @@ public class MagicstenceBaseHelper extends SQLiteOpenHelper{
         db.execSQL(
                 "INSERT INTO Magicsentencedb(id,sentence,word) values(?,?,?)",new Object[] { 456,
                         "According to a recent survey, four million people die each year from ______________ to smoking.",
-                        "diseaseslinked"});
+                        "diseases linked"});
 
 
 

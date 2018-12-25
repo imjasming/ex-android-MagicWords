@@ -35,7 +35,6 @@ public class ReadingFragment extends BaseBackFragment {
     private boolean is_next;
     StenceLab wordsLab = StenceLab.getInstance();
 
-
     public ReadingFragment() {
         // Required empty public constructor
     }
@@ -68,6 +67,7 @@ public class ReadingFragment extends BaseBackFragment {
         Toolbar toolbar = v.findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.read);
         initToolbarNav(toolbar);
+
         if (wordsLab.getLen() <= 0) {
             MagicreadBaseHelper dbHelper = new MagicreadBaseHelper(getContext(), "Magicworddb3", null, 1);
             SQLiteDatabase db = dbHelper.getWritableDatabase();
