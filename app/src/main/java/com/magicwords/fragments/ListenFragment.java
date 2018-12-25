@@ -80,7 +80,7 @@ public class ListenFragment extends BaseBackFragment {
             SQLiteDatabase db = dbHelper.getWritableDatabase();
             Cursor cursor = db.query("Magicsentencedb", null, null, null, null, null, null);
             cursor.moveToFirst();
-
+            //db.execSQL("update Magicsentencedb set ");
             for (int i = 0; i < cursor.getColumnCount(); i++) {
                 wordsLab.add(new StenceBean(cursor.getInt(0), cursor.getString(1),cursor.getString(2)));
                 cursor.moveToNext();

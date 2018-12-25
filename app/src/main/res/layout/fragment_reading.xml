@@ -12,7 +12,8 @@
     <TextView
         android:id="@+id/passage_title"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
@@ -23,25 +24,27 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="320dp">
+        android:layout_height="0dp"
+        android:layout_weight="7">
 
         <TextView
             android:id="@+id/passage_content"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:background="@color/colorTextView"
             android:textSize="24sp" />
-    </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:layout_marginTop="10dp"
         android:paddingHorizontal="10dp"
         android:orientation="vertical">
