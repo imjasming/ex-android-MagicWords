@@ -2,6 +2,7 @@ package com.magicwords.fragments;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.magicwords.R;
 import com.magicwords.MainActivity;
@@ -37,6 +39,7 @@ public class ListenFragment extends BaseBackFragment {
     private TextInputEditText input;
     private TextInputLayout layout;
     private ImageButton listen;
+    private MediaPlayer mediaPlayer;
 
     private int mInt = 0;
 
@@ -102,6 +105,33 @@ public class ListenFragment extends BaseBackFragment {
         input.setText("");
 
 
+        switch (wordsLab.get(mInt).toint()){
+            case 446:
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.a);
+                break;
+            case 448:
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.abdominal);
+                break;
+            case 460:
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.across);
+                break;
+            case 456:
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.bored);
+                break;
+            default:
+                break;
+        }
+        try {
+            if (mediaPlayer != null) {
+                mediaPlayer.start();
+//                    Toast.makeText(getContext(), "播放", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "资源加载错误", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(getContext(), "play false", Toast.LENGTH_SHORT).show();
+        }
+
         Textview1.setText(content);
         //按钮功能（目前仅有跳转）
         listen.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +139,16 @@ public class ListenFragment extends BaseBackFragment {
             public void onClick(View v) {
                 //播放听力
                 wordsLab.get(mInt).toint();
+                try {
+                    if (mediaPlayer != null) {
+                        mediaPlayer.start();
+//                    Toast.makeText(getContext(), "播放", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "资源加载错误", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "play false", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -158,6 +198,34 @@ public class ListenFragment extends BaseBackFragment {
                 content = "";
                 mInt++;
                 Textview1.setText(content);
+
+
+                switch (wordsLab.get(mInt).toint()){
+                    case 446:
+                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.a);
+                        break;
+                    case 448:
+                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.abdominal);
+                        break;
+                    case 460:
+                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.across);
+                        break;
+                    case 456:
+                        mediaPlayer = MediaPlayer.create(getContext(),R.raw.bored);
+                        break;
+                    default:
+                        break;
+                }
+                try {
+                    if (mediaPlayer != null) {
+                        mediaPlayer.start();
+//                    Toast.makeText(getContext(), "播放", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "资源加载错误", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "play false", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
