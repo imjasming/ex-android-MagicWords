@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.magicwords.R;
 import com.magicwords.model.User;
+import com.magicwords.model.UserClient;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,6 +63,9 @@ public class UserCenterFragment extends BaseBackFragment {
         Toolbar toolbar = v.findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.user_center);
         initToolbarNav(toolbar);
+
+        mUsername.setText(UserClient.getInstance().getNickName());
+
         return v;
     }
 

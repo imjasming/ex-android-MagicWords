@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.magicwords.R;
+import com.magicwords.model.User;
+import com.magicwords.model.UserClient;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,8 +81,9 @@ public class SignInFragment extends BaseBackFragment {
                         .build()
                         .post();*/
 
-                Toast.makeText(getContext(), "test",Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(), "",Toast.LENGTH_LONG).show();
 
+                UserClient client = UserClient.getInstance().init(new User(username));
                 SupportFragment fragment = findFragment(HomeFragment.class);
                 if (fragment == null) {
                     replaceFragment(HomeFragment.newInstance(), false);
