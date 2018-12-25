@@ -39,7 +39,9 @@
             android:background="@drawable/shape_border"
             android:layout_weight="1"
             android:layout_width="30sp"
-            android:layout_height="40sp"/>
+            android:layout_height="40sp"
+            android:clickable="true"
+            />
     </LinearLayout>
 
 
@@ -48,42 +50,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="hello world"
         android:layout_weight="3" />
 
     <TextView
         android:id="@+id/depth1_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
+        android:layout_weight="0.4"
         android:background="@drawable/shape_border_yyl"
         android:gravity="center"
         android:text="非常熟悉"
         android:textAlignment="center"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:clickable="true"
+        />
 
     <TextView
         android:id="@+id/depth1_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
+        android:layout_weight="0.4"
         android:background="@drawable/shape_border_yyl"
         android:gravity="center"
         android:text="好像知道"
         android:textAlignment="center"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:clickable="true"
+        />
 
     <TextView
         android:id="@+id/depth1_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
+        android:layout_weight="0.4"
         android:background="@drawable/shape_border_yyl"
         android:gravity="center"
         android:text="一点也不知道"
         android:textAlignment="center"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:clickable="true"
+        />
 </LinearLayout>

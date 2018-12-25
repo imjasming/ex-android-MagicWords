@@ -41,7 +41,9 @@
             android:src="@drawable/ic_volume_up_black_24dp"
             android:layout_weight="1"
             android:layout_width="30sp"
-            android:layout_height="40sp" />
+            android:layout_height="40sp"
+            android:clickable="true"
+            />
     </LinearLayout>
 
     <TextView
@@ -78,12 +80,14 @@
         android:id="@+id/next3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:gravity="center"
         android:text="NEXT"
         android:background="@drawable/shape_border_yyl"
         android:textAlignment="center"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:clickable="true"
+        />
 
 </LinearLayout>
