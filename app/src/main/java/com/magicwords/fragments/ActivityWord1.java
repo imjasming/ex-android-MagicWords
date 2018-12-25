@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,6 +102,10 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
         }
 //        mediaPlayer = MediaPlayer.create(ActivityWord1.this,Uri.parse("http://192.168.78.1:8080/ad/accelerate.mp3"));
 
+        Toolbar toolbar = v.findViewById(R.id.toolbar);
+        toolbar.setTitle("单词");
+        initToolbarNav(toolbar);
+
         return v;
     }
 
@@ -110,15 +115,18 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
             case R.id.depth1_1:
                 Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
                 mInt++;
-                replaceFragment(ActivityWord1.newInstance(mInt), false);
+                Toast.makeText(getContext(), "点击depth1", Toast.LENGTH_SHORT).show();
+                startWithPop(ActivityWord2.newInstance());
                 break;
             case R.id.depth1_2:
                 Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
-                replaceFragment(ActivityWord2.newInstance(mInt), false);
+                Toast.makeText(getContext(), "点击depth2", Toast.LENGTH_SHORT).show();
+                startWithPop(ActivityWord2.newInstance());
                 break;
             case R.id.depth1_3:
                 Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
-                replaceFragment(ActivityWord3.newInstance(mInt), false);
+                Toast.makeText(getContext(), "点击depth3", Toast.LENGTH_SHORT).show();
+                startWithPop(ActivityWord2.newInstance());
                 break;
             case R.id.listen1:
                 Toast.makeText(getContext(), "listening", Toast.LENGTH_SHORT).show();

@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +69,10 @@ public class ActivityWord2 extends BaseBackFragment implements View.OnClickListe
             Cursor cursor = db.query("Magicworddb", null, null, null, null, null, null);
             cursor.moveToFirst();
 
+        Toolbar toolbar = v.findViewById(R.id.toolbar);
+        toolbar.setTitle("单词");
+        initToolbarNav(toolbar);
+
             for (int i = 0; i < cursor.getColumnCount(); i++) {
                 wordsLab.add(new WordBean(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4)));
 
@@ -91,11 +96,13 @@ public class ActivityWord2 extends BaseBackFragment implements View.OnClickListe
             case R.id.depth2_1:
                 Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
                 mIndex++;
-                replaceFragment(ActivityWord1.newInstance(mIndex), false);
+                Toast.makeText(getContext(), "点击depth1", Toast.LENGTH_SHORT).show();
+                startWithPop(ActivityWord3.newInstance());
                 break;
             case R.id.depth2_2:
+                Toast.makeText(getContext(), "点击depth2", Toast.LENGTH_SHORT).show();
+                startWithPop(ActivityWord3.newInstance());
                 Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
-                replaceFragment(ActivityWord3.newInstance(mIndex), false);
                 break;
         }
     }

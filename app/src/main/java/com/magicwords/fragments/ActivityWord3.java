@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,9 +85,13 @@ public class ActivityWord3 extends BaseBackFragment {
         next3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment(ActivityWord1.newInstance(++mIndex), false);
+                startWithPop(ActivityWord1.newInstance());
             }
         });
+
+        Toolbar toolbar = v.findViewById(R.id.toolbar);
+        toolbar.setTitle("单词");
+        initToolbarNav(toolbar);
 
         return v;
     }
