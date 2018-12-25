@@ -85,7 +85,7 @@ public class ActivityWord3 extends BaseBackFragment {
         next3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startWithPop(ActivityWord1.newInstance());
+                startWithPop(ActivityWord1.newInstance(++mIndex));
             }
         });
 

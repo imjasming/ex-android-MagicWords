@@ -98,6 +98,7 @@ public class ListenFragment extends BaseBackFragment {
         input.setVisibility(View.GONE);
         layout=v.findViewById(R.id.listen_input);
         listen=v.findViewById(R.id.listen);
+        input.setText("");
 
 
         Textview1.setText(content);

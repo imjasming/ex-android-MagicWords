@@ -69,10 +69,6 @@ public class ActivityWord2 extends BaseBackFragment implements View.OnClickListe
             Cursor cursor = db.query("Magicworddb", null, null, null, null, null, null);
             cursor.moveToFirst();
 
-        Toolbar toolbar = v.findViewById(R.id.toolbar);
-        toolbar.setTitle("单词");
-        initToolbarNav(toolbar);
-
             for (int i = 0; i < cursor.getColumnCount(); i++) {
                 wordsLab.add(new WordBean(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4)));
 
@@ -87,6 +83,11 @@ public class ActivityWord2 extends BaseBackFragment implements View.OnClickListe
         yinbiao.setText(content);
         content=wordsLab.get(mIndex).tolizi();
         lizi.setText(content);
+
+        Toolbar toolbar = v.findViewById(R.id.toolbar);
+        toolbar.setTitle("单词");
+        initToolbarNav(toolbar);
+
         return v;
     }
 
@@ -94,16 +95,11 @@ public class ActivityWord2 extends BaseBackFragment implements View.OnClickListe
     public void onClick(View view){
         switch (view.getId()){
             case R.id.depth2_1:
-                Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
                 mIndex++;
-                Toast.makeText(getContext(), "点击depth1", Toast.LENGTH_SHORT).show();
-                startWithPop(ActivityWord3.newInstance());
+                startWithPop(ActivityWord1.newInstance(mIndex));
                 break;
             case R.id.depth2_2:
-                Toast.makeText(getContext(), "点击depth2", Toast.LENGTH_SHORT).show();
-                startWithPop(ActivityWord3.newInstance());
-                Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
-                break;
+                startWithPop(ActivityWord3.newInstance(mIndex));break;
         }
     }
 

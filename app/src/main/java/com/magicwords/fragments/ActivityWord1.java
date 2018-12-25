@@ -113,20 +113,17 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.depth1_1:
-                Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
+
                 mInt++;
-                Toast.makeText(getContext(), "点击depth1", Toast.LENGTH_SHORT).show();
-                startWithPop(ActivityWord2.newInstance());
+                startWithPop(ActivityWord1.newInstance(mInt));
                 break;
             case R.id.depth1_2:
-                Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getContext(), "点击depth2", Toast.LENGTH_SHORT).show();
-                startWithPop(ActivityWord2.newInstance());
+
+                startWithPop(ActivityWord2.newInstance(mInt));
                 break;
             case R.id.depth1_3:
-                Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getContext(), "点击depth3", Toast.LENGTH_SHORT).show();
-                startWithPop(ActivityWord2.newInstance());
+
+                startWithPop(ActivityWord3.newInstance(mInt));
                 break;
             case R.id.listen1:
                 Toast.makeText(getContext(), "listening", Toast.LENGTH_SHORT).show();
