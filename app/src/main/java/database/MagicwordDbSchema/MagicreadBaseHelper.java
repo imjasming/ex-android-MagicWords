@@ -33,7 +33,7 @@ public class MagicreadBaseHelper extends SQLiteOpenHelper{
 
         db.execSQL(
                 "INSERT INTO Magicreaddb(id,sentence,word) values(?,?,?)",new Object[] { 448,
-                        "In recent years, more and more cities in China begin to build subways. Developing the subway is good for reducing the traffic jam and air pollution in cities. A growing number of people choose subway as their main means of transportation to go to work or school every day for its advantages of safety, fast speed and comfort. Nowadays, taking the subway is becoming more and more convenient in China. In some cities, passengers can use a card or a mobile phone to take the subway. Many elderly local citizens can also take the subway for free.",
+                        "In recent years, more and more cities in China begin to build subways. Developing the subway is good for reducing the traffic jam and air pollution in cities. a growing number of people choose subway as their main means of transportation to go to work or school every day for its advantages of safety, fast speed and comfort. Nowadays, taking the subway is becoming more and more convenient in China. In some cities, passengers can use a card or a mobile phone to take the subway. Many elderly local citizens can also take the subway for free.",
                         "近年来，中国有越来越多的城市开始建造地铁。发展地铁有助于减少城市的交通拥挤和空气污染。地铁具有安全、快捷和舒适的优点，越来越多的人选择地铁作为每天上班或上学的主要交通工具。如今，在中国乘坐地铁正变得越来越方便。在有些城市里，乘客只需用卡或手机就可以乘坐地铁。许多当地老年市民还可以免费乘坐地铁。"});
         db.execSQL(
                 "INSERT INTO Magicreaddb(id,sentence,word) values(?,?,?)",new Object[] { 460,

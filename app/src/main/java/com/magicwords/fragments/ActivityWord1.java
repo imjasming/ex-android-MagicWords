@@ -91,16 +91,33 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
         }
         content = wordsLab.get(mInt).toword();
         word1.setText(content);
+        switch (content){
+            case "A":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.a);
+                break;
+            case "abdominal":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.abdominal);
+                break;
+            case "across":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.across);
+                break;
+            case "bored":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.bored);
+                break;
+            case "boring":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.boring);
+                break;
+            case "born":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.born);
+                break;
+            default:
+                break;
+        }
+        
         content= wordsLab.get(mInt).toyinbiao();
         yinbiao.setText(content);
-        mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource("http://192.168.78.1:8080/ad/accelerate.mp3");
-        } catch (IOException e) {
-            Toast.makeText(getContext(), "url is false", Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
-//        mediaPlayer = MediaPlayer.create(ActivityWord1.this,Uri.parse("http://192.168.78.1:8080/ad/accelerate.mp3"));
+        
+        
 
         Toolbar toolbar = v.findViewById(R.id.toolbar);
         toolbar.setTitle("单词");
@@ -113,7 +130,6 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.depth1_1:
-
                 mInt++;
                 startWithPop(ActivityWord1.newInstance(mInt));
                 break;
@@ -126,11 +142,11 @@ public class ActivityWord1 extends BaseBackFragment implements View.OnClickListe
                 startWithPop(ActivityWord3.newInstance(mInt));
                 break;
             case R.id.listen1:
-                Toast.makeText(getContext(), "listening", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "listening", Toast.LENGTH_SHORT).show();
                 try {
                     if (mediaPlayer != null) {
                         mediaPlayer.start();
-                        Toast.makeText(getContext(), "播放", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "播放", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "资源加载错误", Toast.LENGTH_SHORT).show();
                     }

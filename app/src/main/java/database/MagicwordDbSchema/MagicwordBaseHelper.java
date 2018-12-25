@@ -25,10 +25,10 @@ public class MagicwordBaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(
                 "INSERT INTO Magicworddb(wordid,word,yinbiao,mean,example) values(?,?,?,?,?)",new Object[] { 1,
-                        "A",
+                        "a",
                         "[ə]",
                         "一,一个,一只,一件.",
-                        "I don't care what a car looks like as long as it gets me from A to B.我倒不在乎汽车的样子, 只要能把我从一处载到另一处就行了.Would you do me a favor?    你能帮我一个忙吗？"});
+                        "I don't care what a car looks like as long as it gets me from a to B.我倒不在乎汽车的样子, 只要能把我从一处载到另一处就行了.Would you do me a favor?    你能帮我一个忙吗？"});
 
         db.execSQL(
                 "INSERT INTO Magicworddb(wordid,word,yinbiao,mean,example) values(?,?,?,?,?)",new Object[] { 2,

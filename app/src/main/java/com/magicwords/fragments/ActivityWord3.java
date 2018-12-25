@@ -3,6 +3,7 @@ package com.magicwords.fragments;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,8 @@ public class ActivityWord3 extends BaseBackFragment {
     private TextView lizi;
     private String content;
     private TextView mean;
+    private ImageView listen3;
+    private MediaPlayer mediaPlayer;
     public ActivityWord3() {
     }
 
@@ -73,8 +77,33 @@ public class ActivityWord3 extends BaseBackFragment {
         yinbiao=(TextView)v.findViewById(R.id.phonetic3);
         lizi=(TextView)v.findViewById(R.id.sentence3);
         mean=(TextView)v.findViewById(R.id.mean);
+        listen3 = (ImageView)v.findViewById(R.id.listen3);
         content=wordsLab.get(mIndex).toword();
         word.setText(content);
+
+        switch (content){
+            case "A":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.a);
+                break;
+            case "abdominal":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.abdominal);
+                break;
+            case "across":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.across);
+                break;
+            case "bored":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.bored);
+                break;
+            case "boring":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.boring);
+                break;
+            case "born":
+                mediaPlayer = MediaPlayer.create(getContext(),R.raw.born);
+                break;
+            default:
+                break;
+        }
+
         content=wordsLab.get(mIndex).toyinbiao();
         yinbiao.setText(content);
         content=wordsLab.get(mIndex).tolizi();
@@ -82,10 +111,28 @@ public class ActivityWord3 extends BaseBackFragment {
         content=wordsLab.get(mIndex).toshili();
         mean.setText(content);
 
+
         next3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startWithPop(ActivityWord1.newInstance(++mIndex));
+            }
+        });
+
+        listen3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(getContext(), "listening", Toast.LENGTH_SHORT).show();
+                try {
+                    if (mediaPlayer != null) {
+                        mediaPlayer.start();
+//                        Toast.makeText(getContext(), "播放", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "资源加载错误", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "play false", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

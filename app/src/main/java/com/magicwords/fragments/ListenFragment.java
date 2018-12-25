@@ -81,10 +81,11 @@ public class ListenFragment extends BaseBackFragment {
             Cursor cursor = db.query("Magicsentencedb", null, null, null, null, null, null);
             cursor.moveToFirst();
             //db.execSQL("update Magicsentencedb set ");
-            for (int i = 0; i < cursor.getColumnCount(); i++) {
+            for (int i = 0; i <=cursor.getColumnCount(); i++) {
                 wordsLab.add(new StenceBean(cursor.getInt(0), cursor.getString(1),cursor.getString(2)));
                 cursor.moveToNext();
             }
+            int m=wordsLab.getLen();
             cursor.close();
         }
         button1 = v.findViewById(R.id.button1);
@@ -107,7 +108,7 @@ public class ListenFragment extends BaseBackFragment {
             @Override
             public void onClick(View v) {
                 //播放听力
-
+                wordsLab.get(mInt).toint();
 
             }
         });
@@ -147,6 +148,7 @@ public class ListenFragment extends BaseBackFragment {
                     Textview1.setText(content);
                     //把数据取出
                 }*/
+
                 button1.setVisibility(View.VISIBLE);
                 button2.setVisibility(View.VISIBLE);
                 button3.setVisibility(View.GONE);

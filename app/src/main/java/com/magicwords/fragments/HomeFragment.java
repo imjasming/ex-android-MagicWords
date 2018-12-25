@@ -27,7 +27,7 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * a simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * {@link HomeFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
@@ -68,7 +68,7 @@ public class HomeFragment extends BaseMainFragment {
     }
 
     /**
-     * @return A new instance of fragment HomeFragment.
+     * @return a new instance of fragment HomeFragment.
      */
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();

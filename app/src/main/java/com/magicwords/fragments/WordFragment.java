@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.magicwords.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * a simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * {@link WordFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
@@ -40,7 +40,7 @@ public class WordFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment WordFragment.
+     * @return a new instance of fragment WordFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static WordFragment newInstance(String param1, String param2) {
