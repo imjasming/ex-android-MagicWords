@@ -36,7 +36,7 @@
             />
 
         <ImageView
-            android:background="@drawable/shape_border"
+            android:background="@drawable/btn_press"
             android:id="@+id/listen3"
             android:src="@drawable/ic_volume_up_black_24dp"
             android:layout_weight="1"
