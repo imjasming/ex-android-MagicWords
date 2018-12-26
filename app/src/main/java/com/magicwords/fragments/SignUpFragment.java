@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.magicwords.R;
+import com.magicwords.net.RestClient;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,7 +68,7 @@ public class SignUpFragment extends BaseBackFragment {
 
         mConfirm.setOnClickListener(v1 -> {
             if (checkForm()) {
-                /*RestClient.builder()
+                RestClient.builder()
                         .url("/signup")
                         .params("username", username)
                         .params("email", email)
@@ -79,8 +80,8 @@ public class SignUpFragment extends BaseBackFragment {
                             Toast.makeText(getContext(), "注册失败", Toast.LENGTH_LONG).show();
                         })
                         .build()
-                        .post();*/
-                Toast.makeText(getContext(), "test", Toast.LENGTH_LONG).show();
+                        .post();
+                Toast.makeText(getContext(), "注册成功", Toast.LENGTH_LONG).show();
                 pop();
             }
         });

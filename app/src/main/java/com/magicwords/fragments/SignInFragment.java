@@ -1,5 +1,6 @@
 package com.magicwords.fragments;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.os.Bundle;
@@ -10,9 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.magicwords.MainActivity;
 import com.magicwords.R;
 import com.magicwords.model.User;
 import com.magicwords.model.UserClient;
+import com.magicwords.net.RestClient;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,35 +64,32 @@ public class SignInFragment extends BaseBackFragment {
 
         mLoginButton.setOnClickListener((View v1) -> {
             if (checkForm()){
-                /*RestClient.builder()
+                RestClient.builder()
                         .url("/signin")
                         .params("username", username)
                         .params("password", password)
                         .success(response -> {
-                            Intent intent = new Intent(this, MainActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(this, response,Toast.LENGTH_LONG).show();
-                            this.finish();
+                            UserClient client = UserClient.getInstance().init(new User(username));
+                            SupportFragment fragment = findFragment(HomeFragment.class);
+                            if (fragment == null) {
+                                replaceFragment(HomeFragment.newInstance(), false);
+                            }else {
+                                popTo(HomeFragment.class, false);
+                            }
                         })
                         .failure(response -> {
                             response.printStackTrace();
-                            Toast.makeText(this, response.toString(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), response.toString(),Toast.LENGTH_LONG).show();
                         })
                         .error((code, msg) -> {
-                            Toast.makeText(this, "用户名或密码输入错误",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), "用户名或密码输入错误",Toast.LENGTH_LONG).show();
                         })
                         .build()
-                        .post();*/
+                        .post();
 
                 //Toast.makeText(getContext(), "",Toast.LENGTH_LONG).show();
 
-                UserClient client = UserClient.getInstance().init(new User(username));
-                SupportFragment fragment = findFragment(HomeFragment.class);
-                if (fragment == null) {
-                    replaceFragment(HomeFragment.newInstance(), false);
-                }else {
-                    popTo(HomeFragment.class, false);
-                }
+
             }
         });
         mRegisterButton.setOnClickListener((View v1) -> start(SignUpFragment.newInstance()));
