@@ -276,8 +276,7 @@ public class ListenFragment extends BaseBackFragment {
 
     @Override
     public boolean onBackPressedSupport() {
-        mediaPlayer.release();
+        mediaPlayer.stop();
         return super.onBackPressedSupport();
-
     }
 }

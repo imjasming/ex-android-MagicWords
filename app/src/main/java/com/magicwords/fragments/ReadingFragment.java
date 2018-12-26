@@ -109,6 +109,8 @@ public class ReadingFragment extends BaseBackFragment {
             is_next=false;
             content1=wordsLab.get(++mInt).toString1();
             content.setText(content1);
+            content1=wordsLab.get(mInt).gettitle();
+            title.setText(content1);
             next_translate.setText("translate it");
         }
     }

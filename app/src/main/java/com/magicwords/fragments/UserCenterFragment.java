@@ -65,6 +65,7 @@ public class UserCenterFragment extends BaseBackFragment {
         initToolbarNav(toolbar);
 
         mUsername.setText(UserClient.getInstance().getNickName());
+        mLevel.setText("0");
 
         return v;
     }
